@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+.titre{
+
+    border: 1px solid black;
+    width: 560px;
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+    margin-left: 50%;
+    margin-top: 2%;
+    margin-bottom: -8%;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+   
+}
+.navBar{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 4%;
+
+
+}
+#img1{
+    width: 400px;
+    height: 300px;
+    margin-left: 30%;
+}
+
+.card-perso{
+    border: 1px solid black;
+    padding:5% ;
+	width: 470px;
+    height: 100px;
+	margin-top: 10%;
+    padding-left: 5%;
+    border-radius:10px ;
+
+	background-color: transparent;
+	font-family: Arial, sans-serif;
+}
+.questions{
+    margin-top: 4%;
+    margin-bottom: 3%;
+    margin-left: 15%;
+    width: 100%;
+    height: 400px;
+    
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+   
+}
+.quest h6{
+    color: rgb(176, 162, 84);
+}
+ .quest span{
+   margin-left: 20%;
+   
+   word-spacing: 10px;
+ 
+}
+.reponse{
+    margin-top: -7%;
+    margin-left:40%;
+}
+.reponse input{
+    width: 25%;
+    margin-top: 15%;
+    margin-left: 7%;
+    padding-left: 10px;
+}
+.reponse label{
+    margin-left: -9%;
+}
+
+.reponse  button {
+   background-color: rgb(143, 203, 143);
+   color: #fff;
+   margin-left: 15%;
+   margin-top: 5%;
+   border-radius: 5px;
+   width: 50px;
+   display: none;
+   
+}
+.reponse  button:hover{
+    background-color: rgb(44, 173, 44);
+    transform:  0.3s all  ease;
+
+}
+
+
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-right: 30%;
+    color: green;
+   
+    
+}
+
+.table-num{
+    margin-left: 30%;
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+.table-num td{
+    padding: 10px;
+}
+
+ 
+
+
+.my-list li {
+    margin-right: 25%;
+    margin-bottom:-10%; /* Modifie la marge entre les éléments de la liste */
+}
+input[type="radio"] {
+    margin-left: 0%;
+
+}
+.quest  img{
+    margin-left: 9%;
+    margin-top: 4%;
+    
+}
+.ensemble{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    margin-right: 30%;
+}
+.ensemble input{
+    background-color: rgb(143, 203, 143);
+    color: #fff;
+    border-radius: 4px;
+    height: 50px;
+   
+}
+.ensemble input:hover{
+    background-color: rgb(44, 173, 44);
+    transform:  0.3s all  ease;
+
+}
+.espace {
+    white-space: nowrap;
+}
+
