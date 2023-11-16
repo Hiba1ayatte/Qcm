@@ -3,7 +3,7 @@ $conn = mysqli_connect("localhost", "root", "", "menarahold");
 if (!$conn) {
   die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
 }
-$sql = "SELECT n.cin, n.nom, n.prenom, n.score FROM noteq2 n , emp e WHERE n.nom = e.NOM AND n.prenom = e.PRENOM  ";
+$sql = "SELECT n.id, n.cin, n.nom, n.prenom, n.score FROM noteq2 n , emp e WHERE n.nom = e.NOM AND n.prenom = e.PRENOM  ";
 $result = $conn->query($sql);
 
 ?>
@@ -131,6 +131,7 @@ td,tr{
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Score</th>
+                            <th>Réponse</th>
 
                         </tr>
                         </thead>
@@ -141,6 +142,7 @@ td,tr{
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Score</th>
+                            <th>Réponse</th>
                         </tr>
                         </tfoot>
 
@@ -153,6 +155,7 @@ td,tr{
                                     echo "<td>" . $row["nom"] . "</td>";
                                     echo "<td>" . $row["prenom"] . "</td>";
                                     echo "<td>" . $row["score"] . "</td>";
+                                    echo "<td><a href='detailsQ2M.php?id=" . $row["id"] . "'>Résponse</a></td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -255,7 +258,7 @@ $(document).ready(function() {
         },
 
         title: {
-            text: "Synthése de Questionnaire 1 "
+            text: "Synthése de Questionnaire 2 MENARA"
         },
         plotOptions: {
             pie: {

@@ -16,6 +16,8 @@ $resultatF = isset($_POST['resultatF']) ? $_POST['resultatF'] : array();
 $resultatJ = isset($_POST['resultatJ']) ? $_POST['resultatJ'] : array();
 $resultatP = isset($_POST['resultatP']) ? $_POST['resultatP'] : array();
 
+
+
 if(isset($_POST['submit'])) {
     $resultatE = isset($_POST['resultatE']) ? $_POST['resultatE'] : array();
     $resultatI = isset($_POST['resultatI']) ? $_POST['resultatI'] : array();
@@ -26,6 +28,7 @@ if(isset($_POST['submit'])) {
     $resultatJ = isset($_POST['resultatJ']) ? $_POST['resultatJ'] : array();
     $resultatP = isset($_POST['resultatP']) ? $_POST['resultatP'] : array();
 
+    var_dump($resultatE);
 
     // Comparaison des scores pour déterminer les dimensions dominantes
     $scoreE = count($resultatE);
@@ -91,6 +94,10 @@ $stmt->bind_param("ssss",$cin , $nom, $prenom, $personnalite);
 
 $stmt->execute();
 
+// Récupérer l'id auto-incrémenté généré pour l'utilisateur
+$idUtilisateur = $conn->insert_id;
+echo "ID inséré : " . $idUtilisateur;
+
 // Maintenant, après avoir inséré les données, récupérez les informations de la personnalité
 $sql = "SELECT * FROM mbti WHERE Name = ?";
 $stmt = $conn->prepare($sql);
@@ -112,6 +119,31 @@ if ($result->num_rows > 0) {
 
     $image = $images . $photo;
 }
+
+    // Vérifier si l'utilisateur existe déjà dans la base de données
+    $stmt = $conn->prepare("SELECT * FROM note WHERE id = ?");
+    $stmt->bind_param("i", $idUtilisateur);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Utiliser l'id de l'utilisateur pour insérer les réponses dans la table "reponses"
+        $stmtReponses = $conn->prepare("INSERT INTO comp_note (id_u, lettre, contexte) VALUES (?, ?, ?)");
+        
+        // Insérer les réponses pour chaque catégorie dans la table "comp_note"
+        insertReponses($stmtReponses, $idUtilisateur, 'E', $resultatE);
+        insertReponses($stmtReponses, $idUtilisateur, 'I', $resultatI);
+        insertReponses($stmtReponses, $idUtilisateur, 'S', $resultatS);
+        insertReponses($stmtReponses, $idUtilisateur, 'N', $resultatN);
+        insertReponses($stmtReponses, $idUtilisateur, 'T', $resultatT);
+        insertReponses($stmtReponses, $idUtilisateur, 'F', $resultatF);
+        insertReponses($stmtReponses, $idUtilisateur, 'J', $resultatJ);
+        insertReponses($stmtReponses, $idUtilisateur, 'P', $resultatP);
+
+
+        // Continuer avec le reste du code pour l'affichage
+        // ...
+    }
 }
     echo '<script>alert("Merci de Remplir votre personnalité MBTI.");</script>';
     exit; 
@@ -126,6 +158,14 @@ if ($result->num_rows > 0) {
     //         exit; 
     // }
 
+}
+
+// Fonction pour insérer les réponses dans la table "reponses"
+function insertReponses($stmt, $idUtilisateur, $lettre, $reponses) {
+    foreach ($reponses as $reponse) {
+        $stmt->bind_param("iss", $idUtilisateur, $lettre, $reponse);
+        $stmt->execute();
+    }
 }
 
 

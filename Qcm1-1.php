@@ -6,70 +6,6 @@ $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 $temps = $_SESSION['temps_total'];
 
-$conn = mysqli_connect("localhost", "root", "", "menarahold");
-if (!$conn) {
-  die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
-}
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre E
-$query1 = "SELECT t.id, t.contexte FROM test_pers_p1 p, test_pers t WHERE t.id = p.q1";
-$result1 = mysqli_query($conn, $query1);
-if (!$result1) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre I
-$query2 = "SELECT t.id, t.contexte FROM test_pers_p1 p, test_pers t WHERE t.id = p.q2";
-$result2 = mysqli_query($conn, $query2);
-if (!$result2) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre S
-$query3 = "SELECT t.id, t.contexte FROM test_pers_p2 p, test_pers t WHERE t.id = p.q1";
-$result3 = mysqli_query($conn, $query3);
-if (!$result3) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre N
-$query4 = "SELECT t.id, t.contexte FROM test_pers_p2 p, test_pers t WHERE t.id = p.q2";
-$result4 = mysqli_query($conn, $query4);
-if (!$result4) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre T
-$query5 = "SELECT t.id, t.contexte FROM test_pers_p3 p, test_pers t WHERE t.id = p.q1";
-$result5 = mysqli_query($conn, $query5);
-if (!$result5) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre F
-$query6 = "SELECT t.id, t.contexte FROM test_pers_p3 p, test_pers t WHERE t.id = p.q2";
-$result6 = mysqli_query($conn, $query6);
-if (!$result6) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre F
-$query7 = "SELECT t.id, t.contexte FROM test_pers_p4 p, test_pers t WHERE t.id = p.q1";
-$result7 = mysqli_query($conn, $query7);
-if (!$result7) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-// Exécutez la requête SQL pour récupérer les données depuis la base de données lettre F
-$query8 = "SELECT t.id, t.contexte FROM test_pers_p4 p, test_pers t WHERE t.id = p.q2";
-$result8 = mysqli_query($conn, $query8);
-if (!$result8) {
-    die("Erreur de requête : " . mysqli_error($conn));
-}
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,11 +18,6 @@ if (!$result8) {
     <!--Swipper CSS-->
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/1112bf78b9.js" crossorigin="anonymous"></script>
-
-    <!-- Include html2canvas and jsPDF libraries -->
-    <script src="html2canvas.js"></script>
-    <script src="jspdf.min.js"></script>
-
     <title>Test De Personnalité</title>
 </head>
 <style>
@@ -259,18 +190,28 @@ if (!$result8) {
     </div>
     <form method="post" action="traitement.php">
         <div class="container">
+
             <div class="part1">
                 <h2> 1.Etes-vous plutôt "E" ou plutôt "I" ?</h2>
             </div>
             <div class="reponse">
                 <div class="partE">
                     <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result1)) {
-                            echo '<li><input type="checkbox" name="resultatE[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous êtes dynamique </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous aimez parler</li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous pensez à voix haute</li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous agissez, puis pensez </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous n’aimez pas être seul</li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous aimez établir de nouveaux contacts
+                        </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous préférez parler plutôt qu’écrire
+                        </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1"> Vous pouvez facilement être distrait
+                        </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous préférez faire plusieurs choses à
+                            la fois </li>
+                        <li><input type="checkbox" name="resultatE[]" value="1">Vous avez parfois un discours changeant
+                        </li>
                     </ul>
                     <div class="result">
                         <h6 id="resultatE">E: 0/10</h6>
@@ -279,13 +220,20 @@ if (!$result8) {
 
 
                 <div class="partI">
-                <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result2)) {
-                            echo '<li><input type="checkbox" name="resultatI[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                    <ul>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous êtes calme </li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous aimez écouter</li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous réfléchissez posément</li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous pensez, puis agissez </li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous vous sentez bien quand vous êtes
+                            seul</li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous aimez approfondir vos contacts</li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous êtes considéré comme plutôt secret
+                            et réservé </li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous possédez une bonne capacité de
+                            concentration</li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous préférez vous concentrer sur une seule chose à la fois </li>
+                        <li><input type="checkbox" name="resultatI[]" value="1">Vous êtes indépendant</li>
                     </ul>
                     <div class="result">
                         <h6 id="resultatI">I: 0/10</h6>
@@ -301,12 +249,23 @@ if (!$result8) {
             <div class="reponse">
                 <div class="partS">
                     <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result3)) {
-                            echo '<li><input type="checkbox" name="resultatS[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                        <li><input type="checkbox" name="resultatS[]" value="1"> Vous vous attachez aux faits et aux
+                            détails </li>
+                        <li><input type="checkbox" name="resultatS[]" value="1">Vous aimez les choses utiles</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1">Vous vivez dans l'instant présent</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1">Vous faites confiance à l’expérience
+                        </li>
+                        <li><input type="checkbox" name="resultatS[]" value="1">Vous aimez approfondir vos compétences
+                        </li>
+                        <li><input type="checkbox" name="resultatS[]" value="1"> Vous restez fidèle aux méthodes qui ont
+                            fait leurs preuves</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1">Vous préférez les instructions étape par
+                            étape</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1"> Vous êtes pratique</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1"> Vous aimez ce qui est concret, réel,
+                            directement observable</li>
+                        <li><input type="checkbox" name="resultatS[]" value="1"> Vous êtes réaliste : vous voyez ce qui
+                            existe</li>
                     </ul>
                     <div class="result">
                         <h6 id="resultatS">S: 0/10</h6>
@@ -315,13 +274,23 @@ if (!$result8) {
 
 
                 <div class="partN">
-                <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result4)) {
-                            echo '<li><input type="checkbox" name="resultatN[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                    <ul>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous vous intéressez aux idées</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous remarquez tout ce qui est nouveau
+                            et différent</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous pensez aux implications futures
+                        </li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous suivez votre instinct </li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous aimez apprendre de nouvelles
+                            compétences</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous n’aimez pas la routine</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous cherchez à comprendre </li>
+                        <li><input type="checkbox" name="resultatN[]" value="1">Vous êtes théorique</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1"> Vous êtes attirés par les idées
+                            originales</li>
+                        <li><input type="checkbox" name="resultatN[]" value="1"> Vous êtes imaginatifs : vous voyez les
+                            possibilités</li>
+
                     </ul>
                     <div class="result">
                         <h6 id="resultatN">N: 0/10</h6>
@@ -337,12 +306,22 @@ if (!$result8) {
             <div class="reponse">
                 <div class="partT">
                     <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result5)) {
-                            echo '<li><input type="checkbox" name="resultatT[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous vous efforcez d'être objectif dans
+                            vos décisions</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous apparaissez calme et réservé</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous avez un sens aigu de la justice
+                        </li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous vous impliquez peu, vous prenez de
+                            la distance</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1"> Vous êtes critique (vous remarquez vite
+                            les failles et les défauts)</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous adorez argumenter pour le plaisir
+                        </li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous êtes franc et direct</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous êtes motivé par vos projets</li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous aimez vous placer en observateur
+                        </li>
+                        <li><input type="checkbox" name="resultatT[]" value="1">Vous êtes sensible à la logique</li>
                     </ul>
                     <div class="result">
                         <h6 id="resultatT">T : 0/10</h6>
@@ -351,13 +330,25 @@ if (!$result8) {
 
 
                 <div class="partF">
-                <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result6)) {
-                            echo '<li><input type="checkbox" name="resultatF[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                    <ul>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous fondez vos décisions sur vos
+                            valeurs et vos sentiments</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous êtes sociable et amical</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous avez tendance à la clémence</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous prenez les choses à cœur</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous tentez de faire plaisir (prompt à
+                            faire des compliments)</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous évitez la discussion et le conflit
+                        </li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous êtes diplomate et faîtes preuve de
+                            tact</li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous êtes motivé par l’estime des autre
+                        </li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous êtes sensible (facilement blessé)
+                        </li>
+                        <li><input type="checkbox" name="resultatF[]" value="1"> Vous faîtes confiance à vos impressions
+                        </li>
+
                     </ul>
                     <div class="result">
                         <h6 id="resultatF">F : 0/10</h6>
@@ -372,13 +363,22 @@ if (!$result8) {
             </div>
             <div class="reponse">
                 <div class="partJ">
-                <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result7)) {
-                            echo '<li><input type="checkbox" name="resultatJ[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                    <ul>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous aimez organiser et planifier</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous êtes sérieux et conventionnel</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous suivez votre calendrier et êtes
+                            parfaitement ponctuel</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous aimez terminer vos projets</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous travaillez d'abord, vous vous
+                            amusez ensuit</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous n’aimez pas le stress de dernière
+                            minute</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous ne discutez pas les règles</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous cherchez à maîtriser</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous êtes à l’aise au sein de
+                            structures bien définies</li>
+                        <li><input type="checkbox" name="resultatJ[]" value="1"> Vous n’aimez pas le provisoire,
+                            l’incertain</li>
                     </ul>
                     <div class="result">
                         <h6 id="resultatJ">J : 0/10</h6>
@@ -388,12 +388,21 @@ if (!$result8) {
 
                 <div class="partP">
                     <ul>
-                    <?php
-                        // Parcourez les données récupérées et générez dynamiquement les éléments de la liste
-                        while ($row = mysqli_fetch_assoc($result8)) {
-                            echo '<li><input type="checkbox" name="resultatP[]" value="'. $row['contexte'] .'">' . $row['contexte'] . '</li>';
-                        }
-                    ?>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous aimez vivre de façon flexible </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous êtes ludique et non-conventionne
+                        </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous n’avez ni heure ni délais </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous aimez démarrer des projets </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous vous amusez d'abord et travaillez
+                            ensuite </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous rechignez à vous engager </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous discutez les règles </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous cherchez à comprendre </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous aimez conserver votre liberté
+                            d'action </li>
+                        <li><input type="checkbox" name="resultatP[]" value="1">Vous restez ouvert, aimez vivre des
+                            expériences, vous adapter </li>
+
                     </ul>
                     <div class="result">
                         <h6 id="resultatP">P : 0/10</h6>
@@ -401,7 +410,7 @@ if (!$result8) {
                 </div>
             </div>
         </div>
-        <div class="valider"> <input onclick="submitTest()" type="submit" name="submit" value="Valider"></div>
+        <div class="valider"> <input type="submit" name="submit" value="Valider"></div>
     </form>
 </body>
 
@@ -593,44 +602,12 @@ if (!$result8) {
             return true;
         }
 
-        function submitTest() {
-            // Capture the screenshot of the page
-            html2canvas(document.body).then(function(canvas) {
-                // Convert the screenshot to a PDF
-                var pdf = new jsPDF();
-                pdf.addImage(canvas.toDataURL('dashboard/PDF'), 'PNG', 0, 0, pdf.internal.pageSize.width, pdf.internal.pageSize.height);
-
-                // Save the PDF and send it to the server
-                saveAndSendPDF(pdf.output('blob'));
-            });
-        }
-
-        function saveAndSendPDF(pdfBlob) {
-            var formData = new FormData();
-            formData.append('pdf', pdfBlob, 'Qcm1-2.pdf');
-
-            // Send the PDF to the server using AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'save_pdf.php', true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Display a thank you message to the user
-                    alert('Thank you for completing the test!');
-                } else {
-                    alert('Error saving the test.');
-                }
-            };
-            xhr.send(formData);
-        }
-
 
     // Désactiver le bouton "Retour" du navigateur
     history.pushState(null, null, location.href);
     window.onpopstate = function (event) {
         history.go(1);
     };
-
-
 
 </script>
 

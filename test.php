@@ -23,7 +23,8 @@ $result = $conn->query($sql);
     
 </body>
 </html>
-<div class="demo-html">
+<div class="demo-html" id="demo-html">
+                    <button type="submit" class="btn" id="btn">Print</button>
 					<div id="demo-output" style="margin-bottom: 1em; overflow: hidden;" class="chart-display highcharts-light" data-highcharts-chart="0">
                         <div id="highcharts-bas3b05-0" dir="ltr" class="highcharts-container "></div>
                     </div>
@@ -178,7 +179,18 @@ const table = new DataTable('#example');
      }));
  }
 </script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function($){
+        $(document).on('click','btn',function(event){
+            event.preventDefault();
+            
+            var element = document .getElementById('demo-html');
+        })
+    })
+</script>
 <script>
+    
     $(document).ready(function () {
         // Initialise le DataTable
         var table = $('#example').DataTable({

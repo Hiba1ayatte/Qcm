@@ -19,10 +19,23 @@ if (!$conn) {
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the user responses from the form
-    $userResponses = $_POST['reponse'];
+    $userResponses = $_POST['reponse1'];
 
     // Initialize variables
     $score = 0;
+    $boolen = true ;
+
+    // Initialisez un tableau pour stocker les réponses
+    $userAnswers = array();
+
+    // Obtenez le prochain ID disponible dans la table noteq1
+    $sqlMaxId = "SELECT MAX(id) AS maxId FROM noteq1";
+    $resultMaxId = mysqli_query($conn, $sqlMaxId);
+    $rowMaxId = mysqli_fetch_assoc($resultMaxId);
+    $maxId = $rowMaxId['maxId'];
+
+    // Définissez $id_personne comme le prochain ID disponible
+    $id_personne = $maxId + 1;
 
     // Loop through the questions
     for ($questionNumber = 1; $questionNumber <= 25; $questionNumber++) {
@@ -37,39 +50,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $row = mysqli_fetch_assoc($result);
             $correctAnswer = $row['Reponse1'];
 
-            // Compare the user's answer with the correct answer
-            if ($userAnswer === $correctAnswer) {
-                // The user's answer is correct, increment the score
-                $score += 4;
-            }elseif (empty($userAnswer)){
-                $score += 0;
-            }else{
-                $score -= 4;
+                // Compare the user's answer with the correct answer
+                if ($userAnswer === $correctAnswer) {
+                    // The user's answer is correct, increment the score
+                    $score += 4;
+                    $boolen = true;
+                }elseif (empty($userAnswer)){
+                    $score += 0;
+                    $boolen = false;
+                }else{
+                    $score -= 4;
+                    $boolen = false;
+
+                }
+            // Store the user's answer in the array
+            $userAnswers["q$questionNumber"] = $userAnswer;
+            } else {
+                // Set an empty value for unanswered questions
+                $userResponses[$questionNumber] = "";
+
+                // If a question is unanswered, set a default value in the array
+                $userAnswers["q$questionNumber"] = "";
             }
-        } else {
-            // Set an empty value for unanswered questions
-            $userResponses[$questionNumber] = "";
-        }
+
+        // $insertSql = "INSERT INTO comp_test1 ( id_u,id_q, reponse_q, reponse_u, est_correcte) VALUES ($id_personne,$questionNumber ,'$correctAnswer','$userAnswer', $boolen)";
+        // mysqli_query($conn, $insertSql);
+        $insertSql = "INSERT INTO comp_noteq1 (id_u, id_q, reponse_q, reponse_u, est_correcte) VALUES (?, ?, ?, ?, ?)";
+        $stmtInsert = $conn->prepare($insertSql);
+        $stmtInsert->bind_param("iisss", $id_personne, $questionNumber, $correctAnswer, $userAnswer, $boolen);
+        $stmtInsert->execute();
+    
         // echo $userAnswer. "----" . $correctAnswer . "///" ;
-    //     echo '<table class="table table-bordered">
-    //         <thead>
-    //             <tr>
-    //             <th scope="col">Question</th>
-    //             <th scope="col">Réponse</th>
-    //             <th scope="col">Réponse d\'utilisateur</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody>';
-
-    // for ($questionNumber = 1; $questionNumber <= 25; $questionNumber++) {
-    //     echo '<tr>';
-    //     echo '<th scope="row">' . $questionNumber . '</th>';
-    //     echo '<td>' . $correctAnswer  . '</td>';
-    //     echo '<td>' . $userAnswer . '</td>';
-    //     echo '</tr>';
-    // }
-
-    // echo '</tbody></table>';
     }
     
     // echo "££££££///" . $score;
@@ -97,6 +108,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssi", $cin, $nom, $prenom, $score);
     mysqli_stmt_execute($stmt);
+
+    // $sql = "INSERT INTO noteq1 (cin, nom, prenom, score, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // $stmt = mysqli_prepare($conn, $sql);
+    // $params = array_merge([$cin, $nom, $prenom, $score], array_values($userAnswers));
+    // mysqli_stmt_bind_param($stmt, "sssi" . str_repeat("s", 25), ...$params);
+    // mysqli_stmt_execute($stmt);
 
     // Increment the current question number
     $currentQuestionNumber = $_GET['question'] ?? 1;

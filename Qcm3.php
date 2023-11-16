@@ -50,7 +50,7 @@ $questions3 = array_merge(
 
 if (isset($_POST['submit_questionnaire'])) {
     // Récupérer les réponses de l'utilisateur depuis le formulaire
-    $reponsesUtilisateur = $_POST['reponse'];
+    $reponsesUtilisateur = $_POST['reponse1'];
     
     // Vous pouvez maintenant comparer les réponses avec celles de la base de données
     $scoreTotal = 0;

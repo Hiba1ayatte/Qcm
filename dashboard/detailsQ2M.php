@@ -3,10 +3,42 @@ $conn = mysqli_connect("localhost", "root", "", "menarahold");
 if (!$conn) {
   die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
 }
-// $sql = "SELECT cin, nom, prenom, score FROM noteq1 ";
-$sql = "SELECT n.id,n.cin, n.nom, n.prenom, n.score FROM noteq1 n LEFT JOIN emp e ON n.nom = e.NOM AND n.prenom = e.PRENOM WHERE e.NOM IS Null AND e.PRENOM IS NULL ";
-$result = $conn->query($sql);
+if (isset($_GET['id'])) {
+    // Récupérez l'ID du candidat
+    $candidatId = $_GET['id'];
 
+    // Requête SQL pour récupérer les détails du candidat
+    $sqlCandidat = "SELECT nom, prenom FROM noteq2 WHERE id = ?";
+    $stmtCandidat = $conn->prepare($sqlCandidat);
+    $stmtCandidat->bind_param("i", $candidatId);
+    $stmtCandidat->execute();
+    $resultCandidat = $stmtCandidat->get_result();
+    // Vérifiez s'il y a des résultats
+    if ($resultCandidat->num_rows > 0) {
+        $rowCandidat = $resultCandidat->fetch_assoc();
+        $nomCandidat = $rowCandidat['nom'];
+        $prenomCandidat = $rowCandidat['prenom'];
+    } 
+
+    // $sqlDetails ="SELECT c.id_q ,t.Question , c.reponse_q , c.reponse_u ,c.est_correcte FROM comp_noteq1 c , test1 t , noteq1 n WHERE t.id = c.id_q AND c.id_u = $candidatId";
+    // Requête SQL pour récupérer les détails du candidat
+    $sqlDetails = "SELECT c.id_q, t.Question, c.reponse_q, c.reponse_u, c.est_correcte
+                   FROM comp_noteq2 c
+                   JOIN test1 t ON t.id = c.id_q
+                   WHERE c.id_u = ?";
+                   
+    // Préparez la requête
+    $stmtDetails = $conn->prepare($sqlDetails);
+
+    // Liez l'ID du candidat à la requête préparée
+    $stmtDetails->bind_param("i", $candidatId);
+
+    // Exécutez la requête
+    $stmtDetails->execute();
+
+    // Obtenez le résultat de la requête
+    $resultDetails = $stmtDetails->get_result();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +93,22 @@ td,tr{
 .submenu {
             display: none;
         }
+        .text-success {
+        color: green;
+        font-weight: bold;
+    }
+
+    .text-danger {
+        color: red;
+        font-weight: bold;
+
+        
+    }
+    .modal-content {
+            max-width: 180% !important; /* Ajustez la largeur de la fenêtre modale selon vos besoins */
+            max-height: 80vh;
+            overflow-y: auto;
+        }
 
 </style>
 </head>
@@ -102,77 +150,61 @@ td,tr{
                     
                     <button class="btn" style="background-color:#ae9d72" id="sidebarToggle">Menu</button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item dropdown" >
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    
-                                    <div class="dropdown-divider"></div>
-                                    <form action="logout.php">
-                                      
-                                        <button type="submit" >Logout</button>
-                                    </form>
-                                    
-                                </div>
-                            </li>
-                        </ul>
-                    </div> -->
+                   
                 </div>
             </nav>
-            <!-- Page content-->
-            <div class="container-fluid">
-                <br>
-                <!-- <h1 class="mt-4">Liste des Employées</h1> -->
-                <!-- Structure de la table --> <br>
-                <div id="container" style="width:100%; height:400px;"></div>
-                    <div class="container" style="background-color:white;width:100%; ">
-                    <table id="example" class="display nowrap" width="100%" style="width:100%">
-                        <thead>
+             <!-- Page content-->
+             <div class="container-fluid" style="background:white; margin-left:5px; margin-right:5px;">
+                    <h1 class="mt-4" style="margin-left:20%;">Réponses De <?php echo $nomCandidat .' '. $prenomCandidat ?></h1>
+                    <a href="#" onclick="imprimerTableau()" style="margin-left:87%;margin-top:2%;margin-bottom:3%" class="btn btn-danger">Imprimer</a>
+                    <br>
+                    <table id="example" class="display" style="width:100%">
+                    <thead>
                         <tr>
-                            <th>Cin</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Score</th>
-                            <th>Résponse</th>
-
+                            <th>Numero Question</th>
+                            <th>Question</th>
+                            <th>Reponse Correcte</th>
+                            <th>Reponse d'Utilisateur</th>
+                            <th>est correcte</th>
                         </tr>
-                        </thead>
-
-                        <tfoot>
+                    </thead>
+                    <tfoot>
                         <tr>
-                            <th>Cin</th>
-                            <th>Nom</th>
-                            <th>Prénom</th>
-                            <th>Score</th>
-                            <th>Résponse</th>
+                            <th>Numero Question</th>
+                            <th>Question</th>
+                            <th>Reponse Correcte</th>
+                            <th>Reponse d'Utilisateur</th>
+                            <th>est correcte</th>
                         </tr>
-                        </tfoot>
-
-                        <tbody>
+                    </tfoot>
+                    <tbody>
                         <?php
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["cin"] . "</td>";
-                                    echo "<td>" . $row["nom"] . "</td>";
-                                    echo "<td>" . $row["prenom"] . "</td>";
-                                    echo "<td>" . $row["score"] . "</td>";
-                                    echo "<td><a href='detailsQ1N.php?id=" . $row["id"] . "'>Résponse</a></td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='8'>Aucun résultat trouvé dans la base de données.</td></tr>";
-                            }
-                        ?>
-                        </tbody>
-                    </table>
+                    if ($resultDetails->num_rows > 0) {
+                        while ($rowDetails = $resultDetails->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $rowDetails["id_q"] . "</td>";
+                            echo "<td>" . $rowDetails["Question"] . "</td>";
+                            echo "<td>" . $rowDetails["reponse_q"] . "</td>";
+                            echo "<td>" . $rowDetails["reponse_u"] . "</td>";
+                            // echo "<td>" . ($rowDetails["est_correcte"] ? 'Oui' : 'Non') . "</td>";
+                            echo "<td class='" . ($rowDetails["est_correcte"] ? 'text-success' : 'text-danger') . "'>" . ($rowDetails["est_correcte"] ? 'Oui' : 'Non') . "</td>";
+                            echo "</tr>";
+                            
+                        }
+                    } else {
+                        echo "<p>Aucun résultat trouvé pour cet ID de candidat.</p>";
+                    }
+                ?>
+                    </tbody>
+                </table>
+                    
                 </div>
             </div>
         </div>
-    </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <!-- jQuery and DataTables JS-->
@@ -195,115 +227,59 @@ td,tr{
             }
         });
     });
-$(document).ready(function() {
-    var table = $("#example").DataTable({
-      dom: 'Pfrtip',
-      scrollX: true, // Active le défilement horizontal
-        // Autres options DataTable
-    });
- 
-    var myChart = Highcharts.chart("container", {
-        chart: {
-            type: "pie"
-        },
+    new DataTable('#example');
 
-        title: {
-            text: "Synthése de Questionnaire 1 "
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
-            }
-        },
-        series: [{
-            data: chartData(table)
-        }]
-    });
- 
-    // Set the data for the first series to be the map returned from the chartData function
-    table.on("draw", function() {
-        myChart.series[0].setData(chartData(table));
-    });
-});
- 
-function chartData(table) {
-    // var counts = {};
-    var intervalCounts = {};
-    var colors = ["#ae9d72", "#9c8c63", "#7e6845", "#ad973d", "#7e7344", "#ab9956", "#e6d1c9", "#efdad7"];
-    var categories = ["Negative" , "0-20", "20-40", "40-60", "60-80", "80-100"];
+//     function imprimerTableau() {
+//     // Désactiver la pagination temporairement
+//     var table = $('#example').DataTable();
+//     var oldPaging = table.page();
+//     table.page('all').draw();
 
-    // Initialize counts for intervals
-    for (var i = 0; i < categories.length; i++) {
-        intervalCounts[categories[i]] = 0;
-    }
- 
-    // Count the number of entries for each office
-    // table
-    //     .column(3, { search: 'applied' })
-    //     .data()
-    //     .each(function (val) {
-    //         if (counts[val]) {
-    //             counts[val] += 1;
-    //         } else {
-    //             counts[val] = 1;
-    //         }
-    //     });
+//     // Ouvrir une nouvelle fenêtre
+//     var popupWin = window.open('', '_blank', 'width=1000,height=1000');
 
-    table.column(3, { search: "applied" }).data().each(function(val) {
-        var value = parseFloat(val);
-        if (isNaN(value)) {
-            value = -1; // Valeur par défaut pour les données non numériques
+//     // Construire le contenu de la fenêtre
+//     var content = document.getElementById('example').outerHTML;
+
+//     // Ajouter le contenu dans la fenêtre
+//     popupWin.document.open();
+//     popupWin.document.write(`
+//         <html>
+//             <head>
+//                 <title>Tableau Imprimé</title>
+//             </head>
+//             <body onload="window.print(); window.onafterprint = function() { window.close(); }">
+//                 ${content}
+//             </body>
+//         </html>
+//     `);
+//     popupWin.document.close();
+
+//     // Restaurer la pagination
+//     table.page(oldPaging).draw();
+// }
+
+function imprimerTableau() {
+            // Ouvrir une nouvelle fenêtre
+            var popupWin = window.open('', '_blank', 'width=1000,height=1000');
+
+            // Construire le contenu de la fenêtre
+            var content = document.getElementById('example').outerHTML;
+
+            // Ajouter le contenu dans la fenêtre
+            popupWin.document.open();
+            popupWin.document.write(`
+                <html>
+                    <head>
+                        <title>Tableau Imprimé</title>
+                    </head>
+                    <body onload="window.print(); window.onafterprint = function() { window.close(); }">
+                        ${content}
+                    </body>
+                </html>
+            `);
+            popupWin.document.close();
         }
-        for (var i = 0; i < categories.length; i++) {
-            var range = categories[i].split("-");
-            var min = parseFloat(range[0]);
-            var max = parseFloat(range[1]);
-            if (value >= min && value < max) {
-                intervalCounts[categories[i]]++;
-                break;
-            }
-        }
-    });
-
-    var negativeCount = 0;
-    table.column(3, { search: "applied" }).data().each(function(val) {
-        var value = parseFloat(val);
-        if (!isNaN(value) && value < 0) {
-            negativeCount++;
-        }
-    });
- 
-    // And map it to the format highcharts uses
-    // return $.map(counts, function (val, key) {
-    //     return {
-    //         name: key,
-    //         y: val,
-    //     };
-    // });
-
-    // Map data to the format that Highcharts uses
-    var data = categories.map(function(category, index) {
-        return {
-            name: category,
-            y: intervalCounts[category],
-            color: colors[index]
-        };
-    });
-
-    // Add the "Negative" category to the data
-    data.push({
-        name: "Negative",
-        y: negativeCount,
-        color: "red" // Couleur pour les notes négatives
-    });
-
-    return data;
-}
 </script>
 </body>
 </html>

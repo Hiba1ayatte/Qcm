@@ -19,10 +19,23 @@ if (!$conn) {
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the user responses from the form
-    $userResponses = $_POST['reponse'];
+    $userResponses = $_POST['reponse1'];
 
     // Initialize variables
     $score = 0;
+    $boolen = true ;
+
+    // Initialisez un tableau pour stocker les réponses
+    $userAnswers = array();
+
+    // Obtenez le prochain ID disponible dans la table noteq1
+    $sqlMaxId = "SELECT MAX(id) AS maxId FROM noteq2";
+    $resultMaxId = mysqli_query($conn, $sqlMaxId);
+    $rowMaxId = mysqli_fetch_assoc($resultMaxId);
+    $maxId = $rowMaxId['maxId'];
+
+     // Définissez $id_personne comme le prochain ID disponible
+     $id_personne = $maxId + 1;
 
     // Loop through the questions
     for ($questionNumber = 1; $questionNumber <= 25; $questionNumber++) {
@@ -41,15 +54,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($userAnswer === $correctAnswer) {
                 // The user's answer is correct, increment the score
                 $score += 4;
+                $boolen = true;
             }elseif (empty($userAnswer)){
                 $score += 0;
+                $boolen = false;
             }else{
                 $score -= 4;
+                $boolen = false;
+
             }
+         // Store the user's answer in the array
+         $userAnswers["q$questionNumber"] = $userAnswer;
         } else {
             // Set an empty value for unanswered questions
             $userResponses[$questionNumber] = "";
+
+            // If a question is unanswered, set a default value in the array
+            $userAnswers["q$questionNumber"] = "";
         }
+
+    // $insertSql = "INSERT INTO comp_test1 ( id_u,id_q, reponse_q, reponse_u, est_correcte) VALUES ($id_personne,$questionNumber ,'$correctAnswer','$userAnswer', $boolen)";
+    // mysqli_query($conn, $insertSql);
+    $insertSql = "INSERT INTO comp_noteq2 (id_u, id_q, reponse_q, reponse_u, est_correcte) VALUES (?, ?, ?, ?, ?)";
+    $stmtInsert = $conn->prepare($insertSql);
+    $stmtInsert->bind_param("iisss", $id_personne, $questionNumber, $correctAnswer, $userAnswer, $boolen);
+    $stmtInsert->execute();
     }
 
     // Retrieve the user's name and surname
