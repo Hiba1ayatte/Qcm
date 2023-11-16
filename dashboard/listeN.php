@@ -3,7 +3,7 @@ $conn = mysqli_connect("localhost", "root", "", "menarahold");
 if (!$conn) {
   die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
 }
-$sql = "SELECT c.cin, c.nom, c.prenom, c.fonction, n.personalite FROM condidat c JOIN note n ON c.nom = n.nom AND c.prenom = n.prenom LEFT JOIN emp e ON c.nom = e.NOM AND c.prenom = e.PRENOM WHERE e.NOM IS NULL AND e.PRENOM IS NULL";
+$sql = "SELECT c.cin, c.nom, c.prenom, c.fonction,n.id, n.personalite FROM condidat c JOIN note n ON c.nom = n.nom AND c.prenom = n.prenom LEFT JOIN emp e ON c.nom = e.NOM AND c.prenom = e.PRENOM WHERE e.NOM IS NULL AND e.PRENOM IS NULL";
 $result = $conn->query($sql);
 
 ?>
@@ -119,7 +119,7 @@ td,tr{
                             <th>Prénom</th>
                             <th>Fonction</th>
                             <th>Personnalité</th>
-
+                            <th>Réponses</th>
                         </tr>
                         </thead>
 
@@ -130,6 +130,7 @@ td,tr{
                             <th>Prénom</th>
                             <th>Fonction</th>
                             <th>Personnalité</th>
+                            <th>Réponses</th>
                         </tr>
                         </tfoot>
 
@@ -143,6 +144,7 @@ td,tr{
                                     echo "<td>" . $row["prenom"] . "</td>";
                                     echo "<td>" . $row["fonction"] . "</td>";
                                     echo "<td>" . $row["personalite"] . "</td>";
+                                    echo "<td><a href='detailsLN.php?id=" . $row["id"] . "'>Résponse</a></td>";
                                     echo "</tr>";
                                 }
                             } else {

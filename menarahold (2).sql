@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 07 nov. 2023 à 18:39
+-- Généré le : jeu. 16 nov. 2023 à 18:41
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -20,6 +20,144 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `menarahold`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comp_note`
+--
+
+CREATE TABLE `comp_note` (
+  `id` int(11) NOT NULL,
+  `id_u` int(11) NOT NULL,
+  `lettre` varchar(2) NOT NULL,
+  `contexte` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `comp_note`
+--
+
+INSERT INTO `comp_note` (`id`, `id_u`, `lettre`, `contexte`) VALUES
+(206, 11, 'E', 'Vous êtes dynamique'),
+(207, 11, 'E', 'Vous aimez parler'),
+(208, 11, 'E', 'Vous pensez à voix haute'),
+(209, 11, 'E', 'Vous agissez, puis pensez'),
+(210, 11, 'E', 'Vous aimez établir de nouveaux contacts'),
+(211, 11, 'E', 'Vous préférez parler plutôt qu’écrire'),
+(212, 11, 'E', 'Vous pouvez facilement être distrait'),
+(213, 11, 'I', 'Vous aimez écouter'),
+(214, 11, 'I', 'Vous préférez vous concentrer sur une seule chose à la fois'),
+(215, 11, 'I', 'Vous êtes indépendant'),
+(216, 11, 'S', 'Vous vivez dans l instant présent '),
+(217, 11, 'S', 'Vous aimez approfondir vos compétences'),
+(218, 11, 'S', 'Vous restez fidèle aux méthodes qui ont fait leurs preuves '),
+(219, 11, 'S', 'Vous préférez les instructions étape par étape'),
+(220, 11, 'N', 'Vous pensez aux implications futures'),
+(221, 11, 'N', 'Vous suivez votre instinct'),
+(222, 11, 'T', 'Vous apparaissez calme et réservé'),
+(223, 11, 'T', 'Vous avez un sens aigu de la justice'),
+(224, 11, 'T', 'Vous êtes critique (vous remarquez vite les failles et les défauts)'),
+(225, 11, 'T', 'Vous adorez argumenter pour le plaisir'),
+(226, 11, 'T', 'Vous êtes franc et direct '),
+(227, 11, 'F', 'Vous prenez les choses à cœur'),
+(228, 11, 'F', 'Vous évitez la discussion et le conflit'),
+(229, 11, 'J', 'Vous êtes sérieux et conventionnel'),
+(230, 11, 'J', 'Vous aimez terminer vos projets '),
+(231, 11, 'P', 'Vous cherchez à comprendre');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comp_noteq1`
+--
+
+CREATE TABLE `comp_noteq1` (
+  `id` int(11) NOT NULL,
+  `id_u` int(11) DEFAULT NULL,
+  `id_q` int(11) DEFAULT NULL,
+  `reponse_q` varchar(255) DEFAULT NULL,
+  `reponse_u` varchar(255) DEFAULT NULL,
+  `est_correcte` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `comp_noteq1`
+--
+
+INSERT INTO `comp_noteq1` (`id`, `id_u`, `id_q`, `reponse_q`, `reponse_u`, `est_correcte`) VALUES
+(2, 1, 1, 'C', 'A', 0),
+(3, 1, 2, '64', '64', 1),
+(4, 1, 3, '5', '11', 0),
+(5, 1, 4, 'N', 'A', 0),
+(6, 1, 5, '13', '12', 0),
+(7, 1, 6, 'D', 'Marseille', 0),
+(8, 1, 7, '15', '15', 1),
+(9, 1, 8, '8', '8', 1),
+(10, 1, 9, 'Q', 'I', 0),
+(11, 1, 10, '8+10', '8+5', 0),
+(12, 1, 11, '1', '5+2', 0),
+(13, 1, 12, '2+5', '6+1', 0),
+(14, 1, 13, '0+6', '3+4', 0),
+(15, 1, 14, '7', '2+1', 0),
+(16, 1, 15, '10', 'V', 0),
+(17, 1, 16, '3', 'T', 0),
+(18, 1, 17, '6', 'D', 0),
+(19, 1, 18, 'B', 'D', 0),
+(20, 1, 19, 'B', 'A', 0),
+(21, 1, 20, 'A', 'D', 0),
+(22, 1, 21, 'A', 'C', 0),
+(23, 1, 22, 'D', 'B', 0),
+(24, 1, 23, 'B', 'B', 1),
+(25, 1, 24, 'D', 'C', 0),
+(26, 1, 25, 'D', 'D', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comp_noteq2`
+--
+
+CREATE TABLE `comp_noteq2` (
+  `id` int(11) NOT NULL,
+  `id_u` int(11) DEFAULT NULL,
+  `id_q` int(11) DEFAULT NULL,
+  `reponse_q` varchar(255) DEFAULT NULL,
+  `reponse_u` varchar(255) DEFAULT NULL,
+  `est_correcte` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `comp_noteq2`
+--
+
+INSERT INTO `comp_noteq2` (`id`, `id_u`, `id_q`, `reponse_q`, `reponse_u`, `est_correcte`) VALUES
+(1, 2, 1, 'C', 'A', 0),
+(2, 2, 1, 'C', 'A', 0),
+(3, 2, 2, '64', '64', 1),
+(4, 2, 3, '5', '11', 0),
+(5, 2, 4, 'N', 'N', 1),
+(6, 2, 5, '13', '13', 1),
+(7, 2, 6, 'D', 'D', 1),
+(8, 2, 7, '15', '15', 1),
+(9, 2, 8, '8', '8', 1),
+(10, 2, 9, 'Q', 'I', 0),
+(11, 2, 10, '8+10', '8+10', 1),
+(12, 2, 11, '5+2', '4', 0),
+(13, 2, 12, '3+4', '6+1', 0),
+(14, 2, 13, '4+2', '4+5', 0),
+(15, 2, 14, '2+3', '1', 0),
+(16, 2, 15, '1', '8', 0),
+(17, 2, 16, '3', '12', 0),
+(18, 2, 17, 'C', '2', 0),
+(19, 2, 18, 'B', 'B', 1),
+(20, 2, 19, 'B', 'B', 1),
+(21, 2, 20, 'A', 'A', 1),
+(22, 2, 21, 'A', 'C', 0),
+(23, 2, 22, 'B', 'B', 1),
+(24, 2, 23, 'B', 'B', 1),
+(25, 2, 24, 'D', 'C', 0),
+(26, 2, 25, 'D', 'D', 1);
 
 -- --------------------------------------------------------
 
@@ -50,7 +188,21 @@ CREATE TABLE `condidat` (
 
 INSERT INTO `condidat` (`id`, `cin`, `nom`, `prenom`, `email`, `direction`, `service`, `societe`, `fonction`, `test`, `temps_total`, `temps_part1`, `temps_part2`, `temps_part3`) VALUES
 (1, 'EE974500', 'AYATTE', 'Hiba', 'hiba.ayatte123@gmail.com', '', '', '', 'AGENT PROJETS CH', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(2, 'S5678', 'ZAHID', 'Mohamed', 'zahid@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00');
+(2, 'S5678', 'ZAHID', 'Mohamed', 'zahid@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(3, 'E56780', 'AYATTE HIBA', 'HIBA', 'hiba.ayatte123@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(4, 'S87654', 'ZAHID', 'Mohamed', 'zahid@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(6, 'RT4568', 'matich', 'HAFSSA', 'hiba.ayatte123@gmail.com', '', '', '', 'ANALYSTE MARKETING', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(10, 'E567802', 'HARBOUL', 'Ayman', 'Ayman@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(11, 'h456789', 'lhirch', 'Mohssine', 'ELHirch@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(12, 'Z233234', 'AMAL', 'HASSAN', 'AMAL@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(13, 'A12345', 'AYATTE', 'Yahya', 'hiba.ayatte123@gmail.com', '', '', '', 'CHARGE(E) SMI SITE', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(14, 'E567802', 'NOURI', 'Amine', 'Nouri@gmail.com', 'RESSOURCES HUMAINES', 'RESSOURCES HUMAINES TRANSVERSE', 'MENARA HOLDING', 'DIRECTEUR EXECUTIF CAPITAL HUMAIN', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(15, 'g345678', 'ATIKA', 'LACHGHAR', 'A_A@gmail.com', '', '', '', 'CHARGE(E) SMI SITE', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(16, 'E5678021', 'SAAD', 'SALAH', 'SAAD@gmail.ma', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(17, 'z23976', 'zakia', 'weqqase', 'Wzqasse@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(18, 'H1233', 'QASSI', 'Hind', 'QASSI@GMAIL.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(19, 'E567806', 'QASSI', 'Hind', 'hj@gmail.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(20, 'E5678023', 'QASSI', 'Hind', 'D@GMAILH.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -621,6 +773,22 @@ CREATE TABLE `note` (
   `personalite` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `note`
+--
+
+INSERT INTO `note` (`id`, `cin`, `nom`, `prenom`, `personalite`) VALUES
+(1, 'EE974500', 'AYATTE', 'HIBA', 'ISFP'),
+(3, 'RT4568', 'matich', 'HAFSSA', 'ENTJ'),
+(4, 'A12345', 'AYATTE', 'Yahya', 'ISFJ'),
+(5, 'E567802', 'NOURI', 'Amine', 'ISFP'),
+(6, 'g345678', 'ATIKA', 'LACHGHAR', 'ENTP'),
+(7, 'E5678021', 'SAAD', 'SALAH', 'ESTJ'),
+(8, 'z23976', 'zakia', 'weqqase', 'ENTP'),
+(9, 'H1233', 'QASSI', 'Hind', 'ENTP'),
+(10, 'E567806', 'QASSI', 'Hind', 'INTJ'),
+(11, 'E5678023', 'QASSI', 'Hind', 'ESTJ');
+
 -- --------------------------------------------------------
 
 --
@@ -629,11 +797,64 @@ CREATE TABLE `note` (
 
 CREATE TABLE `noteq1` (
   `id` int(11) NOT NULL,
+  `cin` varchar(110) NOT NULL,
+  `nom` varchar(256) NOT NULL,
+  `prenom` varchar(256) NOT NULL,
+  `score` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `noteq1`
+--
+
+INSERT INTO `noteq1` (`id`, `cin`, `nom`, `prenom`, `score`) VALUES
+(1, 'S87654', 'ZAHID', 'Mohamed', -60);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `noteq1_1`
+--
+
+CREATE TABLE `noteq1_1` (
+  `id` int(11) NOT NULL,
   `nom` varchar(128) NOT NULL,
   `prenom` varchar(128) NOT NULL,
   `cin` varchar(128) NOT NULL,
-  `score` int(11) NOT NULL
+  `score` int(11) NOT NULL,
+  `q1` varchar(120) NOT NULL,
+  `q2` varchar(120) NOT NULL,
+  `q3` varchar(128) NOT NULL,
+  `q4` varchar(128) NOT NULL,
+  `q5` varchar(120) NOT NULL,
+  `q6` varchar(120) NOT NULL,
+  `q7` varchar(120) NOT NULL,
+  `q8` varchar(120) NOT NULL,
+  `q9` varchar(120) NOT NULL,
+  `q10` varchar(120) NOT NULL,
+  `q11` varchar(120) NOT NULL,
+  `q12` varchar(120) NOT NULL,
+  `q13` varchar(120) NOT NULL,
+  `q14` varchar(120) NOT NULL,
+  `q15` varchar(120) NOT NULL,
+  `q16` varchar(120) NOT NULL,
+  `q17` varchar(120) NOT NULL,
+  `q18` varchar(120) NOT NULL,
+  `q19` varchar(120) NOT NULL,
+  `q20` varchar(120) NOT NULL,
+  `q21` varchar(120) NOT NULL,
+  `q22` varchar(120) NOT NULL,
+  `q23` varchar(120) NOT NULL,
+  `q24` varchar(120) NOT NULL,
+  `q25` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `noteq1_1`
+--
+
+INSERT INTO `noteq1_1` (`id`, `nom`, `prenom`, `cin`, `score`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`, `q20`, `q21`, `q22`, `q23`, `q24`, `q25`) VALUES
+(1, 'ZAHID', 'Mohamed', 'S87654', -60, 'A', '64', '11', 'A', '12', 'Marseille', '15', '8', 'I', '8+5', '5+2', '6+1', '3+4', '2+1', 'V', 'T', 'D', 'D', 'A', 'D', 'C', 'B', 'B', 'C', 'D');
 
 -- --------------------------------------------------------
 
@@ -648,6 +869,13 @@ CREATE TABLE `noteq2` (
   `cin` varchar(128) NOT NULL,
   `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `noteq2`
+--
+
+INSERT INTO `noteq2` (`id`, `nom`, `prenom`, `cin`, `score`) VALUES
+(2, 'NOURI', 'Amine', 'Q23456\r\n', 4);
 
 -- --------------------------------------------------------
 
@@ -767,7 +995,12 @@ CREATE TABLE `session` (
 INSERT INTO `session` (`id`, `nom`, `matricule`, `fonction`, `test`, `temps_total`, `temps_part1`, `temps_part2`, `temps_part3`, `email`, `message`, `created_at`) VALUES
 (1, 'Session Hiba', '', 'AGENT PROJETS CH', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=1', '2023-11-07 14:55:15'),
 (2, 'Session test 1', 'H00001', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '00:00:00', '02:00:00', '05:00:00', '10:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour voudrez vous passer un test Logique sur le lien suivant <br>Lien du test : Qcm/condidatQ1.php?session_id=2', '2023-11-07 15:06:11'),
-(3, 'Session Test 2', 'H00093', 'DIRECTEUR EXECUTIF CAPITAL HUMAIN', 'Test Logique 2', '00:00:00', '02:00:00', '05:00:00', '07:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour voudrez vous passer un test Logique sur le lien suivant<br>Lien du test : Qcm/condidatQ2.php?session_id=3', '2023-11-07 15:08:11');
+(3, 'Session Test 2', 'H00093', 'DIRECTEUR EXECUTIF CAPITAL HUMAIN', 'Test Logique 2', '00:00:00', '02:00:00', '05:00:00', '07:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour voudrez vous passer un test Logique sur le lien suivant<br>Lien du test : Qcm/condidatQ2.php?session_id=3', '2023-11-07 15:08:11'),
+(4, 'Session test', '', 'ANALYSTE MARKETING', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=4', '2023-11-15 16:09:40'),
+(5, 'session d\'insertion', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=5', '2023-11-16 08:00:17'),
+(6, 'Hiba', '', 'CHARGE(E) SMI SITE', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=6', '2023-11-16 10:31:51'),
+(7, 'Mama', 'H00093', 'DIRECTEUR EXECUTIF CAPITAL HUMAIN', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=7', '2023-11-16 13:45:21'),
+(8, 'AAKAR', 'A00010', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=8', '2023-11-16 14:59:50');
 
 -- --------------------------------------------------------
 
@@ -825,6 +1058,51 @@ INSERT INTO `test` (`id`, `test`, `lien`, `message`) VALUES
 (1, 'Test Personnalite', 'Qcm/condidat.php', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant '),
 (2, 'Test Logique 1', 'Qcm/condidatQ1.php', 'Bonjour voudrez vous passer un test Logique sur le lien suivant '),
 (3, 'Test Logique 2', 'Qcm/condidatQ2.php', 'Bonjour voudrez vous passer un test Logique sur le lien suivant');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test1`
+--
+
+CREATE TABLE `test1` (
+  `id` int(2) NOT NULL,
+  `Question` varchar(689) DEFAULT NULL,
+  `Valeur` varchar(41) DEFAULT NULL,
+  `Choix` varchar(336) DEFAULT NULL,
+  `Reponse1` varchar(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `test1`
+--
+
+INSERT INTO `test1` (`id`, `Question`, `Valeur`, `Choix`, `Reponse1`) VALUES
+(1, 'Déterminer la lettre marquante :', '9(N) - 26(V) - 13(T) - 5(?)', NULL, 'C'),
+(2, 'Complétez la série :', '1 - 4 -16 - ? - 256', NULL, '64'),
+(3, 'Complétez ce tableau numérique', '5 -- 2 -- 10 -- 6 -- 4 -- 7 -- 3 --9 -- ?', NULL, '5'),
+(4, 'Complétez la série :', 'B - F - J - ?', NULL, 'N'),
+(5, 'Complétez la série :', '2 - 3 - 5 - 8 - ? - 21', NULL, '13'),
+(6, 'Complétez la série :', 'Pau - Nice - Paris - ?', 'A-Bordeaux B-Lille C-Marseille D-Rennes', 'D'),
+(7, 'Quel nombre manque', '3 -- 7 -- 11 -- ? -- 19', NULL, '15'),
+(8, 'Trouvez le chiffre manquant', 'chat (4) Singe(5) cheval(6) éléphant(?)', NULL, '8'),
+(9, 'Complétez la série :', 'D - 1 - F - 3 - J - 0 - K - 5 - ?', NULL, 'Q'),
+(10, 'Déterminer les deux nombres manquants :', '2 - 19 - 4 - 16 - 6 - 13 - ? - ? - 10 - 7', NULL, '8+10'),
+(11, 'Complétez la série :', 'question11.png', NULL, '1'),
+(12, 'Complétez la série :', 'question12.png', NULL, '2+5'),
+(13, 'Complétez la série :', 'question13.png', NULL, '0+6'),
+(14, 'Complétez la série :', 'question14.png', NULL, '7'),
+(15, 'Complétez la série :', 'question15.png', NULL, '10'),
+(16, 'Complétez la série :', 'question16.png', NULL, '3'),
+(17, 'Complétez la série :', 'question17.png', NULL, '6'),
+(18, 'Thomas vit à Poitiers. Antoine, un de ses amis de longue date, vit aux États-Unis mais, ce dernier se rend souvent à Paris pour affaireet essaye, à chaque fois,de revoir Thomas . Mais, n\'ayant pas suffisamment de temps pour se rendre à Poitiers, Antoine donne toujoursrendez-vous à Thomas à Tours. Paris est à 240 km de Tours et à 340 km de Poitiers . Thomas, qui neprend jamais l\'autoroute, roule à une vitesse moyenne de 50 km/h. Antoine, lui, prend l\'autoroute; mais, compte tenu de la circulation , il roule à une vitesse moyenne de 100 km/h, seulement.S\'ils partent tous les deux à la même heure,lequel des deux arrive le premier à Tours et combien de temps doit-il attendre son ami ?', NULL, 'A - Antoine et 18min B - Thomas et 24min C - Antoine et 36min D - Thomas et 12min', 'B'),
+(19, 'Marie veut repeindre les murs de sa chambre et demande à sa soeur Julie de l’aider. La pièce (rectangulaire) fait 3 m de large et 5 m de long. Le plafond est à une hauteur de 2,50 m. Avant d’aller acheter leur peinture, Marie et Julie doivent déterminer la surface qu’elles auront à peindre. Bricoleuses amateurs, elles décident de prévoir large en considérant que les murs sont entiers, c’est-à-dire sans fenêtre et sans porte. Mais, Marie et Julie ne sont pas très à l’aise avec l’arithmétique : elles ont besoin de votre aide pour le calcul de la surface. Selon vous, quelle surface devront-elles peindre ?', NULL, 'A-35² B-40 m² C-37,5 m² D-42,5 m²', 'B'),
+(20, 'Un chef d’entreprise, dont la société emploie 100 cadres et900 ouvriers, veut savoir combien il doit recruter de nouveaux em-ployés dans le cadre de la réduction du temps de travail. Son person-nel travaillait auparavant 39 heures par semaine ; il va désormaistravailler 35 heures. Combien faut-il embaucher de cadres etd’ouvriers pour compenser intégralement les heures non faites ?', NULL, 'A-11 cadres et 103 ouvrier B-18 cadres et 124 ouvriers C-10 cadres et 134 ouvriers D-22 cadres et 120 ouvriers', 'A'),
+(21, 'Vous vous rendez dîner chez un ami et c’est à vous que revient laconception du dessert. Vous connaissez une merveilleuse recette degâteau au chocolat. Pour 6 personnes, les ingrédients sont : 250 g debeurre, 200 g de sucre, 300 g de chocolat, 6 œufs et 3 cuillerées de fa-rine. Mais, votre ami reçoit 4 personnes seulement. Quelles sont,dans ce cas, les doses requises pour chaque ingrédient de la recette ?', NULL, 'A-170 g de beurre, 130 g de sucre, 200 g de chocolat, 4 œufs, 2 cuillerées de farine B-200 g de beurre, 150 g de sucre, 240 g de chocolat, 4 œufs,1 cuillerée de farine C-230 g de beurre, 100 g de sucre, 180 g de chocolat, 5 œufs, 2 cuillerées de farine D-190 g de beurre, 110 g de sucre, 250 g de chocolat, 3 œufs, 1 cuillerée de farine', 'A'),
+(22, 'Choisissez, parmi les 4 éléments A, B, C et D, celui qui doit terminer la série.', 'question22.png', NULL, 'D'),
+(23, 'Choisissez, parmi les 4 éléments A, B, C et D, celui qui doit terminer la série.', 'question23.png', NULL, 'B'),
+(24, 'Choisissez, parmi les 4 éléments A, B, C, D, E et F celui qui doit terminer la série.', 'question24.png', NULL, 'D'),
+(25, 'Choisissez, parmi les 4 éléments A, B, C celui qui doit terminer la série.', 'question25.png', NULL, 'D');
 
 -- --------------------------------------------------------
 
@@ -914,6 +1192,51 @@ INSERT INTO `test1p3` (`id`, `Question`, `Valeur`, `Choix`, `Reponse1`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `test2`
+--
+
+CREATE TABLE `test2` (
+  `id` int(2) NOT NULL,
+  `Question` varchar(689) DEFAULT NULL,
+  `Valeur` varchar(41) DEFAULT NULL,
+  `Choix` varchar(336) DEFAULT NULL,
+  `Reponse1` varchar(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `test2`
+--
+
+INSERT INTO `test2` (`id`, `Question`, `Valeur`, `Choix`, `Reponse1`) VALUES
+(1, 'Déterminer la lettre marquante :', '9(N) - 26(V) - 13(T) - 5(?)', NULL, 'C'),
+(2, 'complétez la série :', '1 - 4 -16 - ? - 256', NULL, '64'),
+(3, 'complétez ce tableau numérique', '5 -- 2 -- 10 -- 6 -- 4 -- 7 -- 3 --9 -- ?', NULL, '5'),
+(4, 'complétez la série :', 'B - F - J - ?', NULL, 'N'),
+(5, 'complétez la série :', '2 - 3 - 5 - 8 - ? - 21', NULL, '13'),
+(6, 'complétez la série :', 'Pau - Nice - Paris - ?', 'A-Bordeaux B-Lille C-Marseille D-Rennes', 'D'),
+(7, 'Quel nombre manque', '3 -- 7 -- 11 -- ? -- 19', NULL, '15'),
+(8, 'Trouvez le chiffre manquant', 'chat (4) Singe(5) cheval(6) éléphant(?)', NULL, '8'),
+(9, 'complétez la série :', 'D - 1 - F - 3 - J - 0 - K - 5 - ?', NULL, 'Q'),
+(10, 'Déterminer les deux nombres manquants :', '2 - 19 - 4 - 16 - 6 - 13 - ? - ? - 10 - 7', NULL, '8+10'),
+(11, 'complétez la série :', 'question_11.png', NULL, '5+2'),
+(12, 'complétez la série :', 'question_12.png', NULL, '3+4'),
+(13, 'complétez la série :', 'question_13.png', NULL, '4+2'),
+(14, 'complétez la série :', 'question_14.png', NULL, '2+3'),
+(15, 'complétez la série :', 'question_15.png', NULL, '1'),
+(16, 'complétez la série :', 'question_16.png', NULL, '3'),
+(17, 'complétez la série :', 'question17.png', NULL, 'C'),
+(18, 'Thomas vit à Poitiers. Antoine, un de ses amis de longue date, vit aux États-Unis mais, ce dernier se rend souvent à Paris pour affaireet essaye, à chaque fois,de revoir Thomas . Mais, n\'ayant pas suffisamment de temps pour se rendre à Poitiers, Antoine donne toujoursrendez-vous à Thomas à Tours. Paris est à 240 km de Tours et à 340 km de Poitiers . Thomas, qui neprend jamais l\'autoroute, roule à une vitesse moyenne de 50 km/h. Antoine, lui, prend l\'autoroute; mais, compte tenu de la circulation , il roule à une vitesse moyenne de 100 km/h, seulement.S\'ils partent tous les deux à la même heure,lequel des deux arrive le premier à Tours et combien de temps doit-il attendre son ami ?', NULL, 'A - Antoine et 18min B - Thomas et 24min C - Antoine et 36min D - Thomas et 12min', 'B'),
+(19, 'Marie veut repeindre les murs de sa chambre et demande à sa soeur Julie de l’aider. La pièce (rectangulaire) fait 3 m de large et 5 m de long. Le plafond est à une hauteur de 2,50 m. Avant d’aller acheter leur peinture, Marie et Julie doivent déterminer la surface qu’elles auront à peindre. Bricoleuses amateurs, elles décident de prévoir large en considérant que les murs sont entiers, c’est-à-dire sans fenêtre et sans porte. Mais, Marie et Julie ne sont pas très à l’aise avec l’arithmétique : elles ont besoin de votre aide pour le calcul de la surface. Selon vous, quelle surface devront-elles peindre ?', NULL, 'A-35² B-40 m² C-37,5 m² D-42,5 m²', 'B'),
+(20, 'Un chef d’entreprise, dont la société emploie 100 cadres et900 ouvriers, veut savoir combien il doit recruter de nouveaux em-ployés dans le cadre de la réduction du temps de travail. Son person-nel travaillait auparavant 39 heures par semaine ; il va désormaistravailler 35 heures. Combien faut-il embaucher de cadres etd’ouvriers pour compenser intégralement les heures non faites ?', NULL, 'A-11 cadres et 103 ouvrier B-18 cadres et 124 ouvriers C-10 cadres et 134 ouvriers D-22 cadres et 120 ouvriers', 'A'),
+(21, 'Vous vous rendez dîner chez un ami et c’est à vous que revient laconception du dessert. Vous connaissez une merveilleuse recette degâteau au chocolat. Pour 6 personnes, les ingrédients sont : 250 g debeurre, 200 g de sucre, 300 g de chocolat, 6 œufs et 3 cuillerées de fa-rine. Mais, votre ami reçoit 4 personnes seulement. Quelles sont,dans ce cas, les doses requises pour chaque ingrédient de la recette ?', NULL, 'A-170 g de beurre, 130 g de sucre, 200 g de chocolat, 4 œufs, 2 cuillerées de farine B-200 g de beurre, 150 g de sucre, 240 g de chocolat, 4 œufs,1 cuillerée de farine C-230 g de beurre, 100 g de sucre, 180 g de chocolat, 5 œufs, 2 cuillerées de farine D-190 g de beurre, 110 g de sucre, 250 g de chocolat, 3 œufs, 1 cuillerée de farine', 'A'),
+(22, 'Choisissez, parmi les 4 éléments A, B, C et D, celui qui doit terminer la série.', 'question_22.png', NULL, 'B'),
+(23, 'Choisissez, parmi les 4 éléments A, B, C et D, celui qui doit terminer la série.', 'question_23.png', NULL, 'B'),
+(24, 'Choisissez, parmi les 4 éléments A, B, C, D, E et F celui qui doit terminer la série.', 'question_24.png', NULL, 'D'),
+(25, 'Choisissez, parmi les 4 éléments A, B, C celui qui doit terminer la série.', 'question_25.png', NULL, 'D');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `test2p1`
 --
 
@@ -996,9 +1319,255 @@ INSERT INTO `test2p3` (`id`, `Question`, `Valeur`, `Choix`, `Reponse1`) VALUES
 (24, 'Choisissez, parmi les 4 éléments A, B, C, D, E et F celui qui doit terminer la série.', 'question_24.png', NULL, 'D'),
 (25, 'Choisissez, parmi les 4 éléments A, B, C celui qui doit terminer la série.', 'question_25.png', NULL, 'D');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_note`
+--
+
+CREATE TABLE `test_note` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(128) NOT NULL,
+  `prenom` varchar(128) NOT NULL,
+  `cin` varchar(128) NOT NULL,
+  `pdf` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_pers`
+--
+
+CREATE TABLE `test_pers` (
+  `id` int(11) NOT NULL,
+  `lettre` varchar(12) NOT NULL,
+  `contexte` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test_pers`
+--
+
+INSERT INTO `test_pers` (`id`, `lettre`, `contexte`) VALUES
+(1, 'E', 'Vous êtes dynamique'),
+(2, 'E', 'Vous aimez parler'),
+(3, 'E', 'Vous pensez à voix haute'),
+(4, 'E', 'Vous agissez, puis pensez'),
+(5, 'E', 'Vous n’aimez pas être seul'),
+(6, 'E', 'Vous aimez établir de nouveaux contacts'),
+(7, 'E', 'Vous préférez parler plutôt qu’écrire'),
+(8, 'E', 'Vous pouvez facilement être distrait'),
+(9, 'E', 'Vous préférez faire plusieurs choses à la fois'),
+(10, 'E', 'Vous avez parfois un discours changeant'),
+(11, 'I', 'Vous êtes calme'),
+(12, 'I', 'Vous aimez écouter'),
+(13, 'I', 'Vous réfléchissez posément'),
+(14, 'I', 'Vous pensez, puis agissez'),
+(15, 'I', 'Vous vous sentez bien quand vous êtes seul'),
+(16, 'I', 'Vous aimez approfondir vos contacts'),
+(17, 'I', 'Vous êtes considéré comme plutôt secret et réservé '),
+(18, 'I', 'Vous possédez une bonne capacité de concentration'),
+(19, 'I', 'Vous préférez vous concentrer sur une seule chose à la fois'),
+(20, 'I', 'Vous êtes indépendant'),
+(21, 'S', 'Vous vous attachez aux faits et aux détails '),
+(22, 'S', 'Vous aimez les choses utiles'),
+(23, 'S', 'Vous vivez dans l instant présent '),
+(24, 'S', 'Vous faites confiance à l’expérience'),
+(25, 'S', 'Vous aimez approfondir vos compétences'),
+(26, 'S', 'Vous restez fidèle aux méthodes qui ont fait leurs preuves '),
+(27, 'S', 'Vous préférez les instructions étape par étape'),
+(28, 'S', 'Vous êtes pratique'),
+(29, 'S', 'Vous aimez ce qui est concret, réel, directement observable'),
+(30, 'S', 'Vous êtes réaliste : vous voyez ce qui existe'),
+(31, 'N', 'Vous vous intéressez aux idées'),
+(32, 'N', 'Vous remarquez tout ce qui est nouveau et différent'),
+(33, 'N', 'Vous pensez aux implications futures'),
+(34, 'N', 'Vous suivez votre instinct'),
+(35, 'N', 'Vous aimez apprendre de nouvelles compétences'),
+(36, 'N', 'Vous n’aimez pas la routine'),
+(37, 'N', 'Vous cherchez à comprendre'),
+(38, 'N', 'Vous êtes théorique'),
+(39, 'N', 'Vous êtes attirés par les idées originales'),
+(40, 'N', 'Vous êtes imaginatifs : vous voyez les possibilités'),
+(41, 'T', 'Vous vous efforcez dêtre objectif dans vos décisions'),
+(42, 'T', 'Vous apparaissez calme et réservé'),
+(43, 'T', 'Vous avez un sens aigu de la justice'),
+(44, 'T', 'Vous vous impliquez peu, vous prenez de la distance'),
+(45, 'T', 'Vous êtes critique (vous remarquez vite les failles et les défauts)'),
+(46, 'T', 'Vous adorez argumenter pour le plaisir'),
+(47, 'T', 'Vous êtes franc et direct '),
+(48, 'T', 'Vous êtes motivé par vos projets'),
+(49, 'T', 'Vous aimez vous placer en observateur'),
+(50, 'T', 'Vous êtes sensible à la logique'),
+(51, 'F', 'Vous fondez vos décisions sur vos valeurs et vos sentiments'),
+(52, 'F', 'Vous êtes sociable et amical'),
+(53, 'F', 'Vous avez tendance à la clémence'),
+(54, 'F', 'Vous prenez les choses à cœur'),
+(55, 'F', 'Vous tentez de faire plaisir (prompt à faire des compliments)'),
+(56, 'F', 'Vous évitez la discussion et le conflit'),
+(57, 'F', 'Vous êtes diplomate et faîtes preuve de tact'),
+(58, 'F', 'Vous êtes motivé par l’estime des autres'),
+(59, 'F', 'Vous êtes sensible (facilement blessé)'),
+(60, 'F', 'Vous faîtes confiance à vos impressions'),
+(61, 'J', 'Vous aimez organiser et planifier'),
+(62, 'J', 'Vous êtes sérieux et conventionnel'),
+(63, 'J', 'Vous suivez votre calendrier et êtes parfaitement ponctuel'),
+(64, 'J', 'Vous aimez terminer vos projets '),
+(65, 'J', 'Vous travaillez d abord, vous vous amusez ensuite'),
+(66, 'J', 'Vous n’aimez pas le stress de dernière minute'),
+(67, 'J', 'Vous ne discutez pas les règles'),
+(68, 'J', 'Vous cherchez à maîtriser '),
+(69, 'J', 'Vous êtes à l’aise au sein de structures bien définies'),
+(70, 'J', 'Vous n’aimez pas le provisoire, l’incertain'),
+(71, 'P', 'Vous aimez vivre de façon flexible'),
+(72, 'P', 'Vous êtes ludique et non-conventionnel'),
+(73, 'P', 'Vous n’avez ni heure ni délais'),
+(74, 'P', 'Vous aimez démarrer des projets'),
+(75, 'P', 'Vous vous amusez d abord et travaillez ensuite'),
+(76, 'P', 'Vous rechignez à vous engager'),
+(77, 'P', 'Vous discutez les règles'),
+(78, 'P', 'Vous cherchez à comprendre'),
+(79, 'P', 'Vous aimez conserver votre liberté d action'),
+(80, 'P', 'Vous restez ouvert, aimez vivre des expériences, vous adapter');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_pers_p1`
+--
+
+CREATE TABLE `test_pers_p1` (
+  `id` int(11) NOT NULL,
+  `q1` int(11) NOT NULL,
+  `q2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test_pers_p1`
+--
+
+INSERT INTO `test_pers_p1` (`id`, `q1`, `q2`) VALUES
+(1, 1, 11),
+(2, 2, 12),
+(3, 3, 13),
+(4, 4, 14),
+(5, 5, 15),
+(6, 6, 16),
+(7, 7, 17),
+(8, 8, 18),
+(9, 9, 19),
+(10, 10, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_pers_p2`
+--
+
+CREATE TABLE `test_pers_p2` (
+  `id` int(11) NOT NULL,
+  `q1` int(11) NOT NULL,
+  `q2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test_pers_p2`
+--
+
+INSERT INTO `test_pers_p2` (`id`, `q1`, `q2`) VALUES
+(1, 21, 31),
+(2, 22, 32),
+(3, 23, 33),
+(4, 24, 34),
+(5, 25, 35),
+(6, 26, 36),
+(7, 27, 37),
+(8, 28, 38),
+(9, 29, 39),
+(10, 30, 40);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_pers_p3`
+--
+
+CREATE TABLE `test_pers_p3` (
+  `id` int(11) NOT NULL,
+  `q1` int(11) NOT NULL,
+  `q2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test_pers_p3`
+--
+
+INSERT INTO `test_pers_p3` (`id`, `q1`, `q2`) VALUES
+(1, 41, 51),
+(2, 42, 52),
+(3, 43, 53),
+(4, 44, 54),
+(5, 45, 55),
+(6, 46, 56),
+(7, 47, 57),
+(8, 48, 58),
+(9, 49, 59),
+(10, 50, 60);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test_pers_p4`
+--
+
+CREATE TABLE `test_pers_p4` (
+  `id` int(11) NOT NULL,
+  `q1` int(11) NOT NULL,
+  `q2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test_pers_p4`
+--
+
+INSERT INTO `test_pers_p4` (`id`, `q1`, `q2`) VALUES
+(1, 61, 71),
+(2, 62, 72),
+(3, 63, 73),
+(4, 64, 74),
+(5, 65, 75),
+(6, 66, 76),
+(7, 67, 77),
+(8, 68, 78),
+(9, 69, 79),
+(10, 70, 80);
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `comp_note`
+--
+ALTER TABLE `comp_note`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_u` (`id_u`);
+
+--
+-- Index pour la table `comp_noteq1`
+--
+ALTER TABLE `comp_noteq1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_q` (`id_q`),
+  ADD KEY `id_u` (`id_u`);
+
+--
+-- Index pour la table `comp_noteq2`
+--
+ALTER TABLE `comp_noteq2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_q` (`id_q`);
 
 --
 -- Index pour la table `condidat`
@@ -1031,6 +1600,12 @@ ALTER TABLE `noteq1`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `noteq1_1`
+--
+ALTER TABLE `noteq1_1`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `noteq2`
 --
 ALTER TABLE `noteq2`
@@ -1049,14 +1624,88 @@ ALTER TABLE `test`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `test1`
+--
+ALTER TABLE `test1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `test2`
+--
+ALTER TABLE `test2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `test_note`
+--
+ALTER TABLE `test_note`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `test_pers`
+--
+ALTER TABLE `test_pers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `test_pers_p1`
+--
+ALTER TABLE `test_pers_p1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_q1` (`q1`),
+  ADD KEY `fk_q2` (`q2`);
+
+--
+-- Index pour la table `test_pers_p2`
+--
+ALTER TABLE `test_pers_p2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_q3` (`q1`),
+  ADD KEY `fk_q4` (`q2`);
+
+--
+-- Index pour la table `test_pers_p3`
+--
+ALTER TABLE `test_pers_p3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_q5` (`q1`),
+  ADD KEY `fk_q6` (`q2`);
+
+--
+-- Index pour la table `test_pers_p4`
+--
+ALTER TABLE `test_pers_p4`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_7` (`q1`),
+  ADD KEY `fk_8` (`q2`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `comp_note`
+--
+ALTER TABLE `comp_note`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+
+--
+-- AUTO_INCREMENT pour la table `comp_noteq1`
+--
+ALTER TABLE `comp_noteq1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT pour la table `comp_noteq2`
+--
+ALTER TABLE `comp_noteq2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `condidat`
 --
 ALTER TABLE `condidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `login`
@@ -1074,31 +1723,123 @@ ALTER TABLE `mbti`
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `noteq1`
 --
 ALTER TABLE `noteq1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `noteq1_1`
+--
+ALTER TABLE `noteq1_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `noteq2`
 --
 ALTER TABLE `noteq2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `test`
 --
 ALTER TABLE `test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `test_note`
+--
+ALTER TABLE `test_note`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `test_pers`
+--
+ALTER TABLE `test_pers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT pour la table `test_pers_p1`
+--
+ALTER TABLE `test_pers_p1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `test_pers_p2`
+--
+ALTER TABLE `test_pers_p2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `test_pers_p3`
+--
+ALTER TABLE `test_pers_p3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `test_pers_p4`
+--
+ALTER TABLE `test_pers_p4`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `comp_note`
+--
+ALTER TABLE `comp_note`
+  ADD CONSTRAINT `fk_u` FOREIGN KEY (`id_u`) REFERENCES `note` (`id`);
+
+--
+-- Contraintes pour la table `comp_noteq1`
+--
+ALTER TABLE `comp_noteq1`
+  ADD CONSTRAINT `comp_noteq1_ibfk_1` FOREIGN KEY (`id_q`) REFERENCES `test1` (`id`);
+
+--
+-- Contraintes pour la table `comp_noteq2`
+--
+ALTER TABLE `comp_noteq2`
+  ADD CONSTRAINT `fk_q` FOREIGN KEY (`id_q`) REFERENCES `test2` (`id`);
+
+--
+-- Contraintes pour la table `test_pers_p1`
+--
+ALTER TABLE `test_pers_p1`
+  ADD CONSTRAINT `fk_q1` FOREIGN KEY (`q1`) REFERENCES `test_pers` (`id`),
+  ADD CONSTRAINT `fk_q2` FOREIGN KEY (`q2`) REFERENCES `test_pers` (`id`);
+
+--
+-- Contraintes pour la table `test_pers_p2`
+--
+ALTER TABLE `test_pers_p2`
+  ADD CONSTRAINT `fk_q3` FOREIGN KEY (`q1`) REFERENCES `test_pers` (`id`),
+  ADD CONSTRAINT `fk_q4` FOREIGN KEY (`q2`) REFERENCES `test_pers` (`id`);
+
+--
+-- Contraintes pour la table `test_pers_p3`
+--
+ALTER TABLE `test_pers_p3`
+  ADD CONSTRAINT `fk_q5` FOREIGN KEY (`q1`) REFERENCES `test_pers` (`id`),
+  ADD CONSTRAINT `fk_q6` FOREIGN KEY (`q2`) REFERENCES `test_pers` (`id`);
+
+--
+-- Contraintes pour la table `test_pers_p4`
+--
+ALTER TABLE `test_pers_p4`
+  ADD CONSTRAINT `fk_7` FOREIGN KEY (`q1`) REFERENCES `test_pers` (`id`),
+  ADD CONSTRAINT `fk_8` FOREIGN KEY (`q2`) REFERENCES `test_pers` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -28,7 +28,6 @@ if(isset($_POST['submit'])) {
     $resultatJ = isset($_POST['resultatJ']) ? $_POST['resultatJ'] : array();
     $resultatP = isset($_POST['resultatP']) ? $_POST['resultatP'] : array();
 
-    var_dump($resultatE);
 
     // Comparaison des scores pour déterminer les dimensions dominantes
     $scoreE = count($resultatE);
@@ -96,7 +95,6 @@ $stmt->execute();
 
 // Récupérer l'id auto-incrémenté généré pour l'utilisateur
 $idUtilisateur = $conn->insert_id;
-echo "ID inséré : " . $idUtilisateur;
 
 // Maintenant, après avoir inséré les données, récupérez les informations de la personnalité
 $sql = "SELECT * FROM mbti WHERE Name = ?";
