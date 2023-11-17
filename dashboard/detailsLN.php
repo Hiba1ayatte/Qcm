@@ -168,7 +168,7 @@ td,tr{
         }
         /* Dégradé pour la lettre S (par exemple) */
         .lettre-S {
-            background: linear-gradient(to right, #556b2f, #f0e68c); /* DarkOliveGreen à beige clair */
+            background: linear-gradient(to right, #800000, #f0e68c); /* DarkRed à beige clair */
             color: #ffffff; /* Couleur du texte */
         }
         /* Dégradé pour la lettre T (par exemple) */
