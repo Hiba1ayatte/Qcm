@@ -43,6 +43,20 @@ if (isset($_GET['id'])) {
         $rowCandidat = $resultDetails->fetch_assoc();
         $nomCandidat = $rowCandidat['nom'];
         $prenomCandidat = $rowCandidat['prenom'];
+    } else {
+        // Aucune réponse, affichez simplement le nom et le prénom du candidat
+        $sqlCandidat = "SELECT nom, prenom FROM note WHERE id = ?";
+        $stmtCandidat = $conn->prepare($sqlCandidat);
+        $stmtCandidat->bind_param("i", $candidatId);
+        $stmtCandidat->execute();
+        $resultCandidat = $stmtCandidat->get_result();
+
+        // Vérifiez s'il y a des résultats
+        if ($resultCandidat->num_rows > 0) {
+            $rowCandidat = $resultCandidat->fetch_assoc();
+            $nomCandidat = $rowCandidat['nom'];
+            $prenomCandidat = $rowCandidat['prenom'];
+        }
     }
 }
 ?>
