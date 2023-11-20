@@ -117,7 +117,7 @@ body::after{
   
     <div class="card" style="margin-top: 7%;">
         <div class="image">
-            <img src="images/MP.png" alt="" srcset="">
+            <img src="https://menara-holding.ma/Assets/images/Logo_mh.svg" style="margin-bottom:8%;margin-top:2%"alt="" srcset="">
         </div>
         <div class="information">
             <h3><?php echo $nom  . " ". $prenom  ?></h3>

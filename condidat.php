@@ -67,11 +67,13 @@ if ($result && mysqli_num_rows($result) > 0) {
     <title>Test Personnalité</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="css/dax.css">
     <script src='main.js'></script>
     <link rel="stylesheet" href="condidat.css">
 </head>
 <body >
 	<style>
+
         body::after{
     content: "";
     background-image: url(images/slide01.jpg);
@@ -120,6 +122,8 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
+    font-family:'DaxMedium';
+    
 }
 
 input[type="text"], input[type="email"]{

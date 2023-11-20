@@ -94,9 +94,9 @@ if (!$result8) {
 .card-perso {
         border: 1px solid black;
         padding: 5%;
-        width: 400px;
+        width: 450px;
         height: 130px;
-        margin-left: 10%;
+        margin-left: 4%;
     }
   @media screen and (min-width : 901px) and (max-width: 1200px) {
     .titre {
@@ -234,7 +234,7 @@ if (!$result8) {
         <h3>Test Personnalité</h3>
     </div>
     <div class="navBar">
-        <img src="https://menara-holding.ma/Assets/images/Logo_mh.svg" id="img1">
+        <img src="https://www.reseau-entreprendre.org/maroc/wp-content/uploads/sites/12/2019/09/Menara-holding.png" id="img1">
 
         <div class="card-perso">
             <h5>Cin:

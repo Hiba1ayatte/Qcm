@@ -1,7 +1,4 @@
 <?php
-
-?>
-<?php
 // Récupérer les données du candidat à partir de la variable de session
 session_start();
 $nom = $_SESSION['nom'];
@@ -163,287 +160,181 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
-    <link rel="stylesheet" href="css/Qcm2.css">
+    <!-- <link rel="stylesheet" href="css/Qcm2.css"> -->
+    <link rel="stylesheet" href="css/dax.css">
     <!--Swipper CSS-->
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <script src="https://kit.fontawesome.com/1112bf78b9.js" crossorigin="anonymous"></script>
     <title>TEST DE LOGIQUE</title>
+    <style>
+        .navBar img{
+            margin-left:24%;
+            margin-bottom:
+        }
+        .card-perso{
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 600px;
+            height: 100px;
+            margin:auto;
+            font-family: 'DaxLight', sans-serif;
+    
+        }
+        .titre{
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-top: -69px;
+            text-align: center;
+            color: white;
+            background: black;
+            font-family: 'DaxBold', sans-serif;
+        }
+        h5 , h6 {
+           
+        }
+        #timer{
+            border: 1px solid black;
+            border-radius: 8px;
+            width: 200px;
+            color: white;
+            background: black;
+            height: 25px;
+            margin: auto;
+            text-align: center;
+            font-size: large;
+            font-weight: bold;
+            margin-top: 5%;
+            font-family: 'DaxMedium', sans-serif;
+
+        }
+        .questions{
+            /* border: 1px solid black;
+            border-radius: 6px; */
+            margin-top: 30px !important;
+            text-align: center;
+            width: 100%;
+            margin: auto;
+        }
+        .reponse input{
+            width: 15%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-weight:bold;
+            text-align:center;
+            font-size:1em;
+        }
+        .quest h4{
+            font-size:1.5em;
+            font-family: 'DaxMedium', sans-serif;
+        }
+        .quest p, .quest span{
+            font-size:1.1em;
+            font-family: 'DaxLight', sans-serif;
+        }
+        .number{
+            background:black;
+            color:white;
+            font-family: 'DaxMedium', sans-serif;
+            margin-top:5%;
+            margin:auto;
+            font-size:1.4em;
+        }
+        .ensemble{
+            background: black;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            color: white;
+            font-size: 1.5em;
+            width: 500px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'DaxMedium', sans-serif;
+        }
+        .swiper-button-next,
+        .swiper-button-prev{
+            color:black;
+        }
+
+        .swiper-slide {
+            overflow-y: scroll; /* Active la barre de défilement verticale */
+            max-height: 1100px; /* Ajustez la hauteur maximale selon vos besoins */
+            /* display: flex; Assurez-vous que les slides occupent toute la hauteur du conteneur */
+            align-items: center; /* Centre le contenu verticalement dans chaque slide */
+        }
+        @media screen  and (max-width:1100px){
+            .navBar img{
+            margin-left:20%;
+            width: 300px;
+            margin-bottom:10%
+        }
+        .card-perso{
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 550px;
+            height: 100px;
+            margin:auto;
+            font-family: 'DaxLight', sans-serif;
+    
+        }
+        }
+        @media screen  and (max-width:950px){
+            .navBar img{
+            margin-left:24%;
+            width: 200px;
+            margin-bottom:10%
+        }
+        .card-perso{
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 400px;
+            height: 100px;
+            margin:auto;
+            font-family: 'DaxLight', sans-serif;
+    
+        }
+        .titre{
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-top: -69px;
+            text-align: center;
+            color: white;
+            background: black;
+            font-family: 'DaxBold', sans-serif;
+        }
+        }
+
+    </style>
 </head>
-<style>
-    @media screen and (min-width: 1200px)  and (max-width: 1600px) {
-    .quest  img{
-        margin-left: 20%;
-        /* margin-top: 4%; */
-    }
-
-    .quest p{
-        /* margin-left: 15%;  */
-        /* margin-top: 7%; */
-        width: 800px; /* Vous pouvez ajuster la largeur selon vos besoins */
-        word-wrap: break-word;
-    }
-
-    .quest span{
-        margin-left: 10%; 
-        margin-top: 7%;
-        width: 500px; /* Vous pouvez ajuster la largeur selon vos besoins */
-        word-wrap: break-word;
-    }
-
-    .titre{
-        margin-left: 60%;
-        width: 460px;
-        height: 40px;
-        padding-top: 10px;
-       
-       
-    }
-    #timer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: green;
-    margin: 20px auto;
-}
-    .card-perso{
-        
-        padding:5% ;
-        width: 400px;
-        height: 140px;
-        margin-top: 10%;
-        padding-left: 5%;
-        border-radius:10px ;
-        margin-left: 20%;
-     
-    }
-    .swiper-button-next, .swiper-button-prev {
-        color: #ae9d72;
-    }
-    /* .ensemble input{
-        margin-left: 35%;
-    } */
-    }
-   @media screen and (min-width: 901px)  and (max-width: 1200px) {
-    #img1{
-        width: 400px;
-        height: 200px;
-        margin-left: 5%;
-    }
+<body style="">
    
-    .titre{
-        margin-left: 60%;
-        width: 260px;
-        height: 40px;
-        padding-top: 10px;
-       
-       
-    }
-    .card-perso{
-        
-        padding:5% ;
-        width: 400px;
-        height: 100px;
-        margin-top: 10%;
-        padding-left: 5%;
-        border-radius:10px ;
-        margin-left: 20%;
-     
-    }
-
-    .quest  img{
-    margin-left: 20%;
-    margin-top: 4%;
     
-}
-.swiper-button-next, .swiper-button-prev {
-  color: #ae9d72;
-}
-}
-
-   @media screen and (min-width: 601px)  and (max-width: 900px) {
-
-    #img1{
-        width: 300px;
-        height: 250px;
-        margin-left: 5%;
-    }
-    .titre{
-
-        width: 200px;
-        height: 40px;
-        padding-top: 10px;
-        margin-left: 70%;
+    <div class="navBar" >
+        <img src="https://www.reseau-entreprendre.org/maroc/wp-content/uploads/sites/12/2019/09/Menara-holding.png" id="img1">
        
-    }
-    .card-perso{
-        
-        padding:5% ;
-        width: 160px;
-        height: 100px;
-        margin-top: 10%;
-        padding-left: 5%;
-        border-radius:10px ;
-        margin-left: 40%;
-     
-    }
-    .questions{
-        margin-left: -5%;
-       
-    }
-    .container{
-        width: 100%;
-        margin-top: 7%;
-    }
-    .quest h6 {
-      margin-left: 10%;
-      margin-top: 5%;
-    }
-    .quest p{
-        margin-left: 15%; 
-        margin-top: 7%;
-    }
-    .quest span{
-        margin-left: 20%; 
-        margin-top: 7%;
-    }
-    
-    .reponse input{
-        width: 30%;
-        height: 30px;
-        margin-top: 30%;
-        margin-left: 50%;
-    }
-    .quest img {
-        width: 80%;
-        height: 560%;
-    }
-    input[type="radio"] {
-        /* Ajustez la taille souhaitée ici */
-        width: 20px;
-        height: 20px;
-       
-    }
-    .reponse label{
-        white-space: nowrap;
-        margin-bottom: 30%;
-    }
-    .timer{
-        margin-left:25%;
-        margin-top:13%;
-    }
-    .ensemble input{
-        margin-left: 35%;
-    }
-    .swiper-button-next, .swiper-button-prev {
-  color: #ae9d72;
-}
-}
-   @media screen and (min-width: 200px)  and (max-width: 600px) {
-    
-    #img1{
-        width: 150px;
-        height: 100px;
-        margin-left: 2.5%;
-    }
-    .titre{
-
-        width: 150px;
-        height: 40px;
-        padding-top: 10px;
-        margin-left: 50%;
-       
-    }
-    .card-perso{
-        
-        padding:5% ;
-        width: 115px;
-        height: 150px;
-        margin-top: 15%;
-        padding-left: 15%;
-        border-radius:10px ;
-        margin-left: 1%;
-        font-size: 15px ;
-       
-     
-    }
-    
-    .questions{
-        margin-left: -5%;
-    }
-    .container{
-        width: 80%;
-        margin-top:25%;
-        margin-left: 10%;
-    }
-    .quest h6, .quest p {
-      margin-left: 6%;
-    }
-    .quest span{
-        margin-left: 12%;
-        word-spacing: 1px;
-    }
-    #question18{
-        margin-left: 6%;
-        margin-right: 10%;
-        width: 50%;
-    }
-    .reponse input{
-        width: 40%;
-        height: 30px;
-        margin-top: 25%;
-        margin-left: 40%;
-    }
-    .quest img {
-        width: 100%;
-        height: 50%;
-    }
-    input[type="radio"] {
-        /* Ajustez la taille souhaitée ici */
-        width: 20px;
-        height: 20px;
-    }
-    .timer{
-        margin-left:25%;
-        margin-top:20%;
-    }
-    .ensemble input{
-        margin-left: 35%;
-    }
-    .espace {
-        white-space: nowrap;
-    }
-    .swiper-button-next, .swiper-button-prev {
-  color: #ae9d72;
-}
-    
-}
-
-</style>
-
-<body style="margin-top: 4%">
-   
-    <div class="titre"  >
-        <h3>TEST DE LOGIQUE</h3>
-    </div>
-    <div class="navBar">
-        <img src="https://menara-holding.ma/Assets/images/Logo_mh.svg" id="img1">
-
         <div class="card-perso" >
-            <h5>Cin:
-                <?php echo $cin ?>
-            </h5>
-            <br>
-            <h5>Nom:
-                <?php echo $nom ?>
-            </h5>
-            <br>
-            <h5>Prenom:
-                <?php echo $prenom ?>
-            </h5>
-            <br>
-            <h6>Date :
-                <?php echo date("Y-m-d") ?>
-            </h6>
+            <div class="titre"  >
+                <h3>TEST DE LOGIQUE</h3>
+            </div>
+            <div style="display:flex; ">
+                <h4 style="margin-left:30px">NOM:
+                    <?php echo $nom ?>
+                </h4>
+                
+                <h4 style="margin-left:40%">PRENOM:
+                    <?php echo $prenom ?>
+                </h4>
+            </div>
+            <div style="display:flex;">
+                <h4 style="margin-left:30px">CIN:
+                    <?php echo $cin ?>
+                </h4>
+                <h4 style="margin-left:45%">DATE :
+                    <?php echo date("Y-m-d") ?>
+                </h4>
+            </div>
         </div>
     </div>
     <div id="timer">
@@ -459,10 +350,9 @@ $conn->close();
                             $imageBasePath = "images/qcm1/"; // Remplacez ceci par le chemin réel
                             foreach ($questions1 as $question) { ?>
                             <div class="quest">
-                                <h6><?php echo "Question " . $question['id'] . " :" ?></h6>
-                                <br>
+                                <h4><?php echo "Question " . $question['id'] . " :" ?></h4>
                                 <p><?php echo $question['Question'] ?></p>
-                                <br>
+
                                 <!-- <span><?php echo $question['Valeur'] ?></span>    -->
                                 <?php
                             // Vérifiez si le champ "text" contient une extension d'image
@@ -492,25 +382,26 @@ $conn->close();
                             ?>
                                 <br>
                             </div>
+                            <br>
                             <div class="reponse">
                                 <input type="text" title="Si il y a 2 '?' Si Non entre Une seul Réponse " name="reponse1[<?php echo $question['id'] ?>]" placeholder="?+?">
-                                <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button>
+                                <!-- <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button> -->
                             </div>
+                            <br>
                             <!-- <button class="swiper-button-next">Suivant</button> -->
-                    <?php } ?>
+                    <?php } ?><br><br>
                         <!-- Bouton Suivant -->
-                        
+                        <span class="number">1/3</span>
                 </div>
                 
-                <div class="container swiper-slide ">
+                <div class="container swiper-slide " >
                         <?php 
                             $imageBasePath = "images/qcm1/"; // Remplacez ceci par le chemin réel
                             foreach ($questions2 as $question) { ?>
                             <div class="quest">
-                                <h6><?php echo "Question " . $question['id'] . " :" ?></h6>
-                                <br>
+                                <h4><?php echo "Question " . $question['id'] . " :" ?></h4>
                                 <p><?php echo $question['Question'] ?></p>
-                                <br>
+                                
                                 <!-- <span><?php echo $question['Valeur'] ?></span>    -->
                                 <?php
                             // Vérifiez si le champ "text" contient une extension d'image
@@ -540,14 +431,16 @@ $conn->close();
                             ?>
                                 <br>
                             </div>
+                            <br>
                             <div class="reponse">
                                 <input type="text" title="Si il y a 2 '?' Si Non entre Une seul Réponse " name="reponse1[<?php echo $question['id'] ?>]" placeholder="?+?">
-                                <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button>
+                                <!-- <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button> -->
                             </div>
+                            <br>
                             <!-- <button class="swiper-button-next">Suivant</button> -->
-                    <?php } ?>
+                    <?php } ?><br><br>
                         <!-- Bouton Suivant -->
-                        
+                        <span class="number">2/3</span>
                 </div>
                 
                 <div class="container swiper-slide ">
@@ -555,10 +448,9 @@ $conn->close();
                             $imageBasePath = "images/qcm1/"; // Remplacez ceci par le chemin réel
                             foreach ($questions3 as $question) { ?>
                             <div class="quest">
-                                <h6><?php echo "Question " . $question['id'] . " :" ?></h6>
-                                <br>
+                                <h4><?php echo "Question " . $question['id'] . " :" ?></h4>
                                 <p><?php echo $question['Question'] ?></p>
-                                <br>
+                                
                                 <!-- <span><?php echo $question['Valeur'] ?></span>    -->
                                 <?php
                             // Vérifiez si le champ "text" contient une extension d'image
@@ -588,22 +480,24 @@ $conn->close();
                             ?>
                                 <br>
                             </div>
+                            <br>
                             <div class="reponse">
                                 <input type="text" title="Si il y a 2 '?' Si Non entre Une seul Réponse " name="reponse1[<?php echo $question['id'] ?>]" placeholder="?+?">
-                                <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button>
+                                <!-- <button type="submit" name="submit1[<?php echo $question['id'] ?>]"><i class="fa-sharp fa-solid fa-check "></i></button> -->
                             </div>
                             <!-- <button class="swiper-button-next">Suivant</button> -->
                     <?php } ?>
                         <!-- Bouton Suivant -->
-                        
+                        <input type="submit" name="submit-all"  class="ensemble" value="Soumettre toutes les réponses"><br>
+                        <span class="number">3/3</span>
                 </div>
-              
-                    <div class="container swiper-slide ensemble">
+                    <!-- <div class="container swiper-slide ensemble" >
                         <input type="submit" name="submit-all" value="Soumettre toutes les réponses">
-                    </div>
+                    </div> -->
+                    
 
                 </div>
-                <div class="swiper-button-next" id="nextBtn"></div>
+                <div class="swiper-button-next" id="nextBtn" ></div>
                 <div class="swiper-button-prev"></div>
 
 
@@ -619,8 +513,6 @@ $conn->close();
 
 
 </body>
-
-<!--Swipper js-->
 <script src="js/swiper-bundle.min.js"></script>
 
 

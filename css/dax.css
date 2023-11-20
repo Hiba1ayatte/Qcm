@@ -1,0 +1,34 @@
+/* Police Dax Light */
+@font-face {
+    font-family: 'DaxLight';
+    src: url('C:/Users/pc/Desktop/dax/Dax-Light 2_1.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Police Dax Regular */
+@font-face {
+    font-family: 'DaxRegular';
+    src: url('C:/Users/pc/Desktop/dax/ufonts.com_dax-regular.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Police Dax Medium */
+@font-face {
+    font-family: 'DaxMedium';
+    src: url('C:/Users/pc/Desktop/dax/Dax-Medium 2_1.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Police Dax Bold */
+@font-face {
+    font-family: 'DaxBold';
+    src: url('C:/Users/pc/Desktop/dax/Dax-Bold 2_1.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/* Utilisez les autres classes et styles de police de la même manière */
