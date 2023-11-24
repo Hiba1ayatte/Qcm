@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 16 nov. 2023 à 18:41
+-- Généré le : ven. 24 nov. 2023 à 08:30
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -64,7 +64,80 @@ INSERT INTO `comp_note` (`id`, `id_u`, `lettre`, `contexte`) VALUES
 (228, 11, 'F', 'Vous évitez la discussion et le conflit'),
 (229, 11, 'J', 'Vous êtes sérieux et conventionnel'),
 (230, 11, 'J', 'Vous aimez terminer vos projets '),
-(231, 11, 'P', 'Vous cherchez à comprendre');
+(231, 11, 'P', 'Vous cherchez à comprendre'),
+(232, 12, 'E', 'Vous aimez parler'),
+(233, 12, 'E', 'Vous agissez, puis pensez'),
+(234, 12, 'E', 'Vous aimez établir de nouveaux contacts'),
+(235, 12, 'E', 'Vous préférez parler plutôt qu’écrire'),
+(236, 12, 'E', 'Vous pouvez facilement être distrait'),
+(237, 12, 'E', 'Vous préférez faire plusieurs choses à la fois'),
+(238, 12, 'I', 'Vous êtes calme'),
+(239, 12, 'I', 'Vous réfléchissez posément'),
+(240, 12, 'I', 'Vous vous sentez bien quand vous êtes seul'),
+(241, 12, 'I', 'Vous êtes indépendant'),
+(242, 12, 'S', 'Vous vous attachez aux faits et aux détails '),
+(243, 12, 'S', 'Vous vivez dans l instant présent '),
+(244, 12, 'S', 'Vous aimez approfondir vos compétences'),
+(245, 12, 'S', 'Vous êtes pratique'),
+(246, 12, 'S', 'Vous êtes réaliste : vous voyez ce qui existe'),
+(247, 12, 'N', 'Vous remarquez tout ce qui est nouveau et différent'),
+(248, 12, 'N', 'Vous n’aimez pas la routine'),
+(249, 12, 'N', 'Vous êtes attirés par les idées originales'),
+(250, 12, 'T', 'Vous vous efforcez dêtre objectif dans vos décisions'),
+(251, 12, 'T', 'Vous avez un sens aigu de la justice'),
+(252, 12, 'T', 'Vous êtes critique (vous remarquez vite les failles et les défauts)'),
+(253, 12, 'T', 'Vous adorez argumenter pour le plaisir'),
+(254, 12, 'T', 'Vous êtes franc et direct '),
+(255, 12, 'T', 'Vous aimez vous placer en observateur'),
+(256, 12, 'F', 'Vous tentez de faire plaisir (prompt à faire des compliments)'),
+(257, 12, 'F', 'Vous faîtes confiance à vos impressions'),
+(258, 12, 'J', 'Vous aimez organiser et planifier'),
+(259, 12, 'J', 'Vous n’aimez pas le stress de dernière minute'),
+(260, 12, 'J', 'Vous cherchez à maîtriser '),
+(261, 12, 'P', 'Vous êtes ludique et non-conventionnel'),
+(262, 12, 'P', 'Vous n’avez ni heure ni délais'),
+(263, 12, 'P', 'Vous aimez démarrer des projets'),
+(264, 12, 'P', 'Vous vous amusez d abord et travaillez ensuite'),
+(265, 12, 'P', 'Vous rechignez à vous engager'),
+(266, 12, 'P', 'Vous aimez conserver votre liberté d action'),
+(267, 12, 'P', 'Vous restez ouvert, aimez vivre des expériences, vous adapter'),
+(268, 13, 'E', 'Vous êtes dynamique'),
+(269, 13, 'I', 'Vous aimez écouter'),
+(270, 13, 'I', 'Vous réfléchissez posément'),
+(271, 13, 'I', 'Vous pensez, puis agissez'),
+(272, 13, 'I', 'Vous aimez approfondir vos contacts'),
+(273, 13, 'I', 'Vous êtes considéré comme plutôt secret et réservé '),
+(274, 13, 'I', 'Vous préférez vous concentrer sur une seule chose à la fois'),
+(275, 13, 'I', 'Vous êtes indépendant'),
+(276, 13, 'S', 'Vous aimez les choses utiles'),
+(277, 13, 'S', 'Vous vivez dans l instant présent '),
+(278, 13, 'S', 'Vous aimez approfondir vos compétences'),
+(279, 13, 'S', 'Vous restez fidèle aux méthodes qui ont fait leurs preuves '),
+(280, 13, 'S', 'Vous êtes pratique'),
+(281, 13, 'S', 'Vous aimez ce qui est concret, réel, directement observable'),
+(282, 13, 'N', 'Vous vous intéressez aux idées'),
+(283, 13, 'N', 'Vous suivez votre instinct'),
+(284, 13, 'N', 'Vous cherchez à comprendre'),
+(285, 13, 'N', 'Vous êtes imaginatifs : vous voyez les possibilités'),
+(286, 13, 'T', 'Vous vous efforcez dêtre objectif dans vos décisions'),
+(287, 13, 'T', 'Vous avez un sens aigu de la justice'),
+(288, 13, 'T', 'Vous êtes critique (vous remarquez vite les failles et les défauts)'),
+(289, 13, 'T', 'Vous adorez argumenter pour le plaisir'),
+(290, 13, 'T', 'Vous êtes franc et direct '),
+(291, 13, 'T', 'Vous aimez vous placer en observateur'),
+(292, 13, 'F', 'Vous êtes sociable et amical'),
+(293, 13, 'F', 'Vous prenez les choses à cœur'),
+(294, 13, 'F', 'Vous évitez la discussion et le conflit'),
+(295, 13, 'F', 'Vous êtes motivé par l’estime des autres'),
+(296, 13, 'J', 'Vous aimez organiser et planifier'),
+(297, 13, 'J', 'Vous êtes sérieux et conventionnel'),
+(298, 13, 'J', 'Vous suivez votre calendrier et êtes parfaitement ponctuel'),
+(299, 13, 'J', 'Vous aimez terminer vos projets '),
+(300, 13, 'J', 'Vous ne discutez pas les règles'),
+(301, 13, 'J', 'Vous cherchez à maîtriser '),
+(302, 13, 'J', 'Vous êtes à l’aise au sein de structures bien définies'),
+(303, 13, 'P', 'Vous vous amusez d abord et travaillez ensuite'),
+(304, 13, 'P', 'Vous rechignez à vous engager');
 
 -- --------------------------------------------------------
 
@@ -110,7 +183,82 @@ INSERT INTO `comp_noteq1` (`id`, `id_u`, `id_q`, `reponse_q`, `reponse_u`, `est_
 (23, 1, 22, 'D', 'B', 0),
 (24, 1, 23, 'B', 'B', 1),
 (25, 1, 24, 'D', 'C', 0),
-(26, 1, 25, 'D', 'D', 1);
+(26, 1, 25, 'D', 'D', 1),
+(27, 2, 1, 'C', 'A', 0),
+(28, 2, 2, '64', '64', 1),
+(29, 2, 3, '5', '11', 0),
+(30, 2, 4, 'N', 'A', 0),
+(31, 2, 5, '13', '12', 0),
+(32, 2, 6, 'D', 'Marseille', 0),
+(33, 2, 7, '15', '15', 1),
+(34, 2, 8, '8', '8', 1),
+(35, 2, 9, 'Q', 'I', 0),
+(36, 2, 10, '8+10', '8+5', 0),
+(37, 2, 11, '1', '5+2', 0),
+(38, 2, 12, '2+5', '6+1', 0),
+(39, 2, 13, '0+6', '3+4', 0),
+(40, 2, 14, '7', '2+1', 0),
+(41, 2, 15, '10', 'V', 0),
+(42, 2, 16, '3', 'T', 0),
+(43, 2, 17, '6', 'D', 0),
+(44, 2, 18, 'B', 'B', 1),
+(45, 2, 19, 'B', 'A', 0),
+(46, 2, 20, 'A', 'D', 0),
+(47, 2, 21, 'A', 'C', 0),
+(48, 2, 22, 'D', 'B', 0),
+(49, 2, 23, 'B', 'B', 1),
+(50, 2, 24, 'D', 'C', 0),
+(51, 2, 25, 'D', 'A', 0),
+(52, 3, 1, 'C', '', 0),
+(53, 3, 2, '64', '', 0),
+(54, 3, 3, '5', '', 0),
+(55, 3, 4, 'N', '', 0),
+(56, 3, 5, '13', '', 0),
+(57, 3, 6, 'D', '', 0),
+(58, 3, 7, '15', '', 0),
+(59, 3, 8, '8', '', 0),
+(60, 3, 9, 'Q', '', 0),
+(61, 3, 10, '8+10', '', 0),
+(62, 3, 11, '1', '', 0),
+(63, 3, 12, '2+5', '', 0),
+(64, 3, 13, '0+6', '', 0),
+(65, 3, 14, '7', '', 0),
+(66, 3, 15, '10', '', 0),
+(67, 3, 16, '3', '', 0),
+(68, 3, 17, '6', '', 0),
+(69, 3, 18, 'B', '', 0),
+(70, 3, 19, 'B', '', 0),
+(71, 3, 20, 'A', '', 0),
+(72, 3, 21, 'A', '', 0),
+(73, 3, 22, 'D', '', 0),
+(74, 3, 23, 'B', '', 0),
+(75, 3, 24, 'D', '', 0),
+(76, 3, 25, 'D', '', 0),
+(77, 3, 1, 'C', '', 0),
+(78, 3, 2, '64', '', 0),
+(79, 3, 3, '5', '', 0),
+(80, 3, 4, 'N', '', 0),
+(81, 3, 5, '13', '', 0),
+(82, 3, 6, 'D', '', 0),
+(83, 3, 7, '15', '', 0),
+(84, 3, 8, '8', '', 0),
+(85, 3, 9, 'Q', '', 0),
+(86, 3, 10, '8+10', '', 0),
+(87, 3, 11, '1', '', 0),
+(88, 3, 12, '2+5', '', 0),
+(89, 3, 13, '0+6', '', 0),
+(90, 3, 14, '7', '', 0),
+(91, 3, 15, '10', '', 0),
+(92, 3, 16, '3', '', 0),
+(93, 3, 17, '6', '', 0),
+(94, 3, 18, 'B', '', 0),
+(95, 3, 19, 'B', '', 0),
+(96, 3, 20, 'A', '', 0),
+(97, 3, 21, 'A', '', 0),
+(98, 3, 22, 'D', '', 0),
+(99, 3, 23, 'B', '', 0),
+(100, 3, 24, 'D', '', 0),
+(101, 3, 25, 'D', '', 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +305,32 @@ INSERT INTO `comp_noteq2` (`id`, `id_u`, `id_q`, `reponse_q`, `reponse_u`, `est_
 (23, 2, 22, 'B', 'B', 1),
 (24, 2, 23, 'B', 'B', 1),
 (25, 2, 24, 'D', 'C', 0),
-(26, 2, 25, 'D', 'D', 1);
+(26, 2, 25, 'D', 'D', 1),
+(27, 3, 1, 'C', 'A', 0),
+(28, 3, 2, '64', '64', 1),
+(29, 3, 3, '5', '11', 0),
+(30, 3, 4, 'N', 'N', 1),
+(31, 3, 5, '13', '13', 1),
+(32, 3, 6, 'D', 'D', 1),
+(33, 3, 7, '15', '15', 1),
+(34, 3, 8, '8', '8', 1),
+(35, 3, 9, 'Q', 'I', 0),
+(36, 3, 10, '8+10', '8+10', 1),
+(37, 3, 11, '5+2', '4', 0),
+(38, 3, 12, '3+4', '6+1', 0),
+(39, 3, 13, '4+2', '4+5', 0),
+(40, 3, 14, '2+3', '1', 0),
+(41, 3, 15, '1', 'A', 0),
+(42, 3, 16, '3', '12', 0),
+(43, 3, 17, 'C', 'B', 0),
+(44, 3, 18, 'B', 'B', 1),
+(45, 3, 19, 'B', 'B', 1),
+(46, 3, 20, 'A', 'A', 1),
+(47, 3, 21, 'A', 'C', 0),
+(48, 3, 22, 'B', 'B', 1),
+(49, 3, 23, 'B', 'B', 1),
+(50, 3, 24, 'D', 'C', 0),
+(51, 3, 25, 'D', 'D', 1);
 
 -- --------------------------------------------------------
 
@@ -188,9 +361,7 @@ CREATE TABLE `condidat` (
 
 INSERT INTO `condidat` (`id`, `cin`, `nom`, `prenom`, `email`, `direction`, `service`, `societe`, `fonction`, `test`, `temps_total`, `temps_part1`, `temps_part2`, `temps_part3`) VALUES
 (1, 'EE974500', 'AYATTE', 'Hiba', 'hiba.ayatte123@gmail.com', '', '', '', 'AGENT PROJETS CH', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(2, 'S5678', 'ZAHID', 'Mohamed', 'zahid@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (3, 'E56780', 'AYATTE HIBA', 'HIBA', 'hiba.ayatte123@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(4, 'S87654', 'ZAHID', 'Mohamed', 'zahid@gmail.com', '', '', '', 'PRESIDENT DIRECTEUR GENERAL', 'Test Logique 1', '17:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (6, 'RT4568', 'matich', 'HAFSSA', 'hiba.ayatte123@gmail.com', '', '', '', 'ANALYSTE MARKETING', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (10, 'E567802', 'HARBOUL', 'Ayman', 'Ayman@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (11, 'h456789', 'lhirch', 'Mohssine', 'ELHirch@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
@@ -200,9 +371,12 @@ INSERT INTO `condidat` (`id`, `cin`, `nom`, `prenom`, `email`, `direction`, `ser
 (15, 'g345678', 'ATIKA', 'LACHGHAR', 'A_A@gmail.com', '', '', '', 'CHARGE(E) SMI SITE', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (16, 'E5678021', 'SAAD', 'SALAH', 'SAAD@gmail.ma', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (17, 'z23976', 'zakia', 'weqqase', 'Wzqasse@gmail.com', '', '', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(18, 'H1233', 'QASSI', 'Hind', 'QASSI@GMAIL.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(19, 'E567806', 'QASSI', 'Hind', 'hj@gmail.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(20, 'E5678023', 'QASSI', 'Hind', 'D@GMAILH.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00');
+(20, 'E5678023', 'QASSI', 'Hind', 'D@GMAILH.com', 'COMMERCIALE', 'ADMINISTRATION DES VENTES', 'AAKAR DEVELOPPEMENT', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(21, 'B678123', 'Bibous', 'Mohssine', 'BIbous@gmail.com', '', '', '', 'INFORMATICIEN(NE)', 'Test Logique 2', '15:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(22, 'RB1234', 'Ghounibiz', 'Abdelhadi', 'Ghnibiz@gmail.com', '', '', '', 'RESPONSABLE ADMINSTRATION DU PERSONNEL', 'Test Logique 1', '14:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(23, 'C45678', 'BAKKA', 'Charaf', 'CHARAF@gmail.com', 'CONTRÔLE DE GESTION', 'CONTRÔLE DE GESTION', 'MENARA LOGISTIQUE', 'CHARGÉ(E) CONTROLE DE GESTION', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(25, 'y726253', 'elmansouri', 'yahya', 'mansouri@gmail.com', '', '', '', 'RESPONSABLE ADMINSTRATION DU PERSONNEL', 'Test Logique 1', '14:00:00', '00:00:00', '00:00:00', '00:00:00'),
+(26, 'E567802', 'ZAHID', 'Mohamed', 'zahid@gmail.com', 'PRESIDENCE', 'PRESIDENCE', 'MENARA HOLDING', 'PRESIDENT DIRECTEUR GENERAL', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -785,9 +959,9 @@ INSERT INTO `note` (`id`, `cin`, `nom`, `prenom`, `personalite`) VALUES
 (6, 'g345678', 'ATIKA', 'LACHGHAR', 'ENTP'),
 (7, 'E5678021', 'SAAD', 'SALAH', 'ESTJ'),
 (8, 'z23976', 'zakia', 'weqqase', 'ENTP'),
-(9, 'H1233', 'QASSI', 'Hind', 'ENTP'),
-(10, 'E567806', 'QASSI', 'Hind', 'INTJ'),
-(11, 'E5678023', 'QASSI', 'Hind', 'ESTJ');
+(11, 'E5678023', 'QASSI', 'Hind', 'ESTJ'),
+(12, 'C45678', 'BAKKA', 'Charaf', 'ESTP'),
+(13, 'E567802', 'ZAHID', 'Mohamed', 'ISTJ');
 
 -- --------------------------------------------------------
 
@@ -808,7 +982,9 @@ CREATE TABLE `noteq1` (
 --
 
 INSERT INTO `noteq1` (`id`, `cin`, `nom`, `prenom`, `score`) VALUES
-(1, 'S87654', 'ZAHID', 'Mohamed', -60);
+(1, 'S87654', 'ZAHID', 'Mohamed', -60),
+(2, 'RB1234', 'Ghounibiz', 'Abdelhadi', -60),
+(3, 'y726253', 'elmansouri', 'yahya', 0);
 
 -- --------------------------------------------------------
 
@@ -875,7 +1051,8 @@ CREATE TABLE `noteq2` (
 --
 
 INSERT INTO `noteq2` (`id`, `nom`, `prenom`, `cin`, `score`) VALUES
-(2, 'NOURI', 'Amine', 'Q23456\r\n', 4);
+(2, 'NOURI', 'Amine', 'Q23456\r\n', 4),
+(3, 'Bibous', 'Mohssine', 'B678123', 4);
 
 -- --------------------------------------------------------
 
@@ -1000,7 +1177,11 @@ INSERT INTO `session` (`id`, `nom`, `matricule`, `fonction`, `test`, `temps_tota
 (5, 'session d\'insertion', '', 'CHARGE(E) BUREAU D\'ETUDES', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=5', '2023-11-16 08:00:17'),
 (6, 'Hiba', '', 'CHARGE(E) SMI SITE', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=6', '2023-11-16 10:31:51'),
 (7, 'Mama', 'H00093', 'DIRECTEUR EXECUTIF CAPITAL HUMAIN', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=7', '2023-11-16 13:45:21'),
-(8, 'AAKAR', 'A00010', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=8', '2023-11-16 14:59:50');
+(8, 'AAKAR', 'A00010', 'ASSISTANT(E) COMMERCIALE', 'Test Personnalite', '13:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=8', '2023-11-16 14:59:50'),
+(9, 'Session Informaticien', '', 'INFORMATICIEN(NE)', 'Test Logique 2', '00:00:00', '02:00:00', '05:00:00', '08:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour voudrez vous passer un test Logique sur le lien suivant<br>Lien du test : Qcm/condidatQ2.php?session_id=9', '2023-11-17 07:26:55'),
+(10, 'Session Ghounibiz', '', 'RESPONSABLE ADMINSTRATION DU PERSONNEL', 'Test Logique 1', '00:00:00', '02:00:00', '05:00:00', '07:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour voudrez vous passer un test Logique sur le lien suivant <br>Lien du test : Qcm/condidatQ1.php?session_id=10', '2023-11-17 07:35:56'),
+(11, 'Session Hiba', 'E00075', 'CHARGÉ(E) CONTROLE DE GESTION', 'Test Personnalite', '12:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=11', '2023-11-17 07:56:19'),
+(12, 'session zahid perso', 'H00001', 'PRESIDENT DIRECTEUR GENERAL', 'Test Personnalite', '10:00:00', '00:00:00', '00:00:00', '00:00:00', 'hiba.ayatte123@gmail.com', 'Bonjour, voudrez vous passer un test de personnalite sur le lien suivant <br>Lien du test : Qcm/condidat.php?session_id=12', '2023-11-23 17:14:27');
 
 -- --------------------------------------------------------
 
@@ -1687,25 +1868,25 @@ ALTER TABLE `test_pers_p4`
 -- AUTO_INCREMENT pour la table `comp_note`
 --
 ALTER TABLE `comp_note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
 
 --
 -- AUTO_INCREMENT pour la table `comp_noteq1`
 --
 ALTER TABLE `comp_noteq1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT pour la table `comp_noteq2`
 --
 ALTER TABLE `comp_noteq2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pour la table `condidat`
 --
 ALTER TABLE `condidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `login`
@@ -1723,13 +1904,13 @@ ALTER TABLE `mbti`
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `noteq1`
 --
 ALTER TABLE `noteq1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `noteq1_1`
@@ -1741,13 +1922,13 @@ ALTER TABLE `noteq1_1`
 -- AUTO_INCREMENT pour la table `noteq2`
 --
 ALTER TABLE `noteq2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `test`
