@@ -5,6 +5,7 @@ $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 $cin = $_SESSION['cin'];
 $temps = $_SESSION['temps_total'];
+$heures_minutes = substr($temps, 0, 5); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,11 +121,11 @@ body::after{
             <img src="https://menara-holding.ma/Assets/images/Logo_mh.svg" style="margin-bottom:8%;margin-top:2%" alt="" srcset="">
         </div>
         <div class="information">
-            <h3><?php echo $nom  . " ". $prenom  ?></h3>
+            <h3><?php echo   $prenom. " ". $nom  ?></h3>
             
             <p>Cher candidat <?php echo $cin ?>,
 
-Nous vous souhaitons la bienvenue pour ce test de logique Vous passerai le test dans  <?php echo $temps ?> . C'est une excellente opportunité pour vous de mieux vous connaître. Prenez le temps de répondre aux questions avec attention et sincérité. Nous vous encourageons à donner le meilleur de vous-même. Êtes-vous prêt à commencer ?</p>
+Nous vous souhaitons la bienvenue pour ce test de logique, Vous passerai le test dans <?php echo $heures_minutes ?> minutes . C'est une excellente opportunité pour vous de mieux vous connaître. Prenez le temps de répondre aux questions avec attention et sincérité. Nous vous encourageons à donner le meilleur de vous-même. Êtes-vous prêt à commencer ?</p>
         </div>
         <form method="POST" action="Qcm2.php">
             <div class="button"><input type="submit" value="Entrer"></div>

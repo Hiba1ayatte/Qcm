@@ -5,6 +5,7 @@ $nom = $_SESSION['nom'];
 $prenom = $_SESSION['prenom'];
 $cin = $_SESSION['cin'];
 $temps = $_SESSION['temps_total'];
+$heures_minutes = substr($temps, 0, 5); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +125,7 @@ body::after{
             
             <p>Cher candidat <?php echo $cin ?>,
 
-Nous vous souhaitons la bienvenue pour e test de logique Vous passerai le test dans <?php echo $temps ?>. C'est une excellente opportunité pour vous de mieux vous connaître. Prenez le temps de répondre aux questions avec attention et sincérité. Nous vous encourageons à donner le meilleur de vous-même. Êtes-vous prêt à commencer ?</p>
+Nous vous souhaitons la bienvenue pour e test de logique, Vous passerai le test dans <?php echo $heures_minutes?> minutes. C'est une excellente opportunité pour vous de mieux vous connaître. Prenez le temps de répondre aux questions avec attention et sincérité. Nous vous encourageons à donner le meilleur de vous-même. Êtes-vous prêt à commencer ?</p>
         </div>
         <form method="POST" action="Qcm3.php">
             <div class="button"><input type="submit" value="Entrer"></div>
